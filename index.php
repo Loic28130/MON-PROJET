@@ -12,10 +12,7 @@
 
 <body>
 
-    <?php
-            include ("structure/en-tete.php");
-            // header("location:structure/en-tete.php/")
-        ?>
+    <?php include_once ("structure/en-tete.php");?>
 
     
     <div id="corps">
@@ -28,10 +25,7 @@
         </span>
     </div>
 
-    <div id="pied_de_page"> 
-
-
-    </div>
+    <?php include_once ("structure/pied_de_page.php");?>
     
 </body>
 </html>

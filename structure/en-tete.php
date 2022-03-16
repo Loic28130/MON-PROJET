@@ -8,9 +8,9 @@
     </div> 
 
     <div id="bouton">
-        <a href="index.html" class="bouton">acceuill</a>
-        <a href="chauffeur.html" class="bouton">chauffeur</a>
-        <a href="livraison.html" class="bouton">livraison colis</a>
+        <a href="index.php" class="bouton">acceuill</a>
+        <a href="chauffeur.php" class="bouton">chauffeur</a>
+        <a href="livraison.php" class="bouton">livraison colis</a>
     </div>
 </div> 
 
