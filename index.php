@@ -13,22 +13,10 @@
 <body>
 
     <?php
-            require ("./structure/en-tete.php");
+            include ("structure/en-tete.php");
             // header("location:structure/en-tete.php/")
         ?>
 
-    <!-- <div id="en-tete">
-        <div id="titre">
-            <img src="image/logo.png" alt="">
-            <h1>chauffeur/livreur privée</h1>
-        </div> 
-        
-        <div id="bouton">
-            <a href="index.html" class="bouton">acceuill</a>
-            <a href="chauffeur.html" class="bouton">chauffeur</a>
-            <a href="livraison.html" class="bouton">livraison colis</a>
-        </div>
-    </div>  -->
     
     <div id="corps">
         <h2>description</h2>
