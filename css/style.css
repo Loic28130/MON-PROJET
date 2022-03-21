@@ -6,7 +6,7 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    background:url(../image/fond.png)/* no-repeat center center cover*/;
+    background:url(../image/fond.png) /*no-repeat center center cover*/;
     background-size: 100%;
 }
 /* ********** en-tete ********************* */
