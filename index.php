@@ -9,11 +9,7 @@
 </head>
 <body>
 
-    <div id="en-tete">
-        <span><h1>chauffeur/livreur privée</h1></span>
-        <a href="" class="bouton">se connecter</a>
-
-    </div>
+    <?php include ("./structure/en-tete.php");?>
 
     <div id="corps">
         <h1>description</h1>
@@ -23,14 +19,11 @@
                   exercitationem, aperiam ea, at facere aspernatur quisquam
                    doloremque doloribus id. Repellendus sit asperiores dolorum possimus!</p>
         </div>
-        <a href="formulaire_inscription.html" class="bouton inscription">inscription</a>
+        <a href="formulaire_inscription.php" class="bouton inscription">inscription</a>
 
     </div>
 
-    <div id="pied_de_page">
-        <a href="">nous contacter</a>
-
-    </div>
+    <?php include ("./structure/footer.php");?>
     
 </body>
 </html>
