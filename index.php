@@ -9,21 +9,58 @@
 </head>
 <body>
 
-    <?php include ("./structure/en-tete.php");?>
+<header>
+    <span><h1>chauffeur/livreur privée</h1></span>
+            <a href="index.php?page=connection" class="bouton">se connecter</a>
+</header>
 
-    <div id="corps">
-        <h1>description</h1>
-        <div class="description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                 Maxime dignissimos cupiditate eveniet asperiores a nostrum
-                  exercitationem, aperiam ea, at facere aspernatur quisquam
-                   doloremque doloribus id. Repellendus sit asperiores dolorum possimus!</p>
-        </div>
-        <a href="formulaire_inscription.php" class="bouton inscription">inscription</a>
+    <?php
+var_dump ($_POST);
 
-    </div>
+//definition de la 
+if (!isset($_GET["page"])) {
+    $_GET["page"]="index";
+}
+// if ($_GET["page"]=="chercher")
+//     include ("form_chercher.php");
 
-    <?php include ("./structure/footer.php");?>
+// if ($_GET["page"]=="index")
+//     include ("acceuil.php");
+    
+// if ($_GET["page"]=="ajout")
+//     include ("form_ajout.php");
+
+switch ($_GET["page"]) {
+    
+
+    case "index":
+        include ("acceuil.php");
+    break;
+
+    case "inscription":
+        include ("formulaire_inscription.php");
+    break;
+
+    case "inscrire":
+        include ("inscrire.php");
+    break;
+
+    case "connection":
+        include ("formulaire_connection.php");
+    break;
+
+    case "connect":
+        include ("connect.php");
+    break;
+
+    
+    default : include ("acceuil.php");
+}
+?>
+    <footer>
+        <a href="">nous contacter</a>
+    </footer>
+    
     
 </body>
 </html>

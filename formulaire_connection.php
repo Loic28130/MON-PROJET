@@ -9,12 +9,12 @@
 </head>
 <body>
     
-<form action="index.php?page=inscrire" method="post" class="formulaire">
-    <label for="nom">nom</label>
-    <input type="text" name="nom" required>
+<form action="index.php?page=connect" method="post" class="formulaire">
+    <!-- <label for="nom">nom</label>
+    <input type="text" name="nom" required> -->
 
-    <label for="prenom">prénom</label>
-    <input type="text" name="prenom" required>
+    <!-- <label for="prenom">prénom</label>
+    <input type="text" name="prenom" required> -->
 
     <label for="email">email</label>
     <input type="email" name="email" required>
