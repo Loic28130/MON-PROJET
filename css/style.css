@@ -26,6 +26,11 @@ body {
     box-shadow: 10px 5px 5px ;
 }
 
+.bouton:hover {
+    text-decoration: underline;
+    color: rgb(241, 134, 53);
+}
+
 /* ************************************** */
 
 
@@ -55,9 +60,7 @@ h1 {
 
 a:hover {
     text-decoration: underline;
-    color: rgb(241, 134, 53);
-    
-    
+    color: rgb(241, 134, 53);  
 }
 /* **************************************** */
 

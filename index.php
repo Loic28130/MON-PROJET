@@ -1,3 +1,6 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,24 +14,25 @@
 
 <header>
     <span><h1>chauffeur/livreur privée</h1></span>
-            <a href="index.php?page=connection" class="bouton">se connecter</a>
+
+    <?php  if (!isset($_SESSION["nom"])) { ?>
+        <a href="index.php?page=connection" class="bouton">se connecter</a>
+    <?php } 
+
+       else { ?>
+        <div class="bouton"><?php echo ($_SESSION["nom"]);?></div>
+     <?php } ?> 
+
+    
 </header>
 
     <?php
-var_dump ($_POST);
+// var_dump ($_POST);
 
 //definition de la 
 if (!isset($_GET["page"])) {
     $_GET["page"]="index";
 }
-// if ($_GET["page"]=="chercher")
-//     include ("form_chercher.php");
-
-// if ($_GET["page"]=="index")
-//     include ("acceuil.php");
-    
-// if ($_GET["page"]=="ajout")
-//     include ("form_ajout.php");
 
 switch ($_GET["page"]) {
     

@@ -9,7 +9,7 @@
 </head>
 <body>
     
-<form action="index.php?page=inscrire" method="post" class="formulaire">
+<form action="index.php?page=" method="post" class="formulaire">
     <label for="nom">nom</label>
     <input type="text" name="nom" required>
 
