@@ -25,4 +25,8 @@ $_SESSION["nom"] = $row["nom"];
 else {
   echo "erreur " . $requete . "<br>" . mysqli_error($connect);
 }
+
+header ("location:index.php?page=chauffeur");
 ?>
+
+

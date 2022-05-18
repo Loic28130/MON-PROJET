@@ -21,6 +21,11 @@
 
        else { ?>
         <div class="bouton"><?php echo ($_SESSION["nom"]);?></div>
+        
+        <ul>
+            <li><a href="#">mon compte</a></li>
+            <li><a href="index.php?page=deconnect">se deconnecter</a></li>
+        </ul>
      <?php } ?> 
 
     
@@ -55,6 +60,14 @@ switch ($_GET["page"]) {
 
     case "connect":
         include ("connect.php");
+    break;
+
+    case "deconnect":
+        include ("deconnect.php");
+    break;
+
+    case "chauffeur":
+        include ("formulaire_chauffeur.php");
     break;
 
     
