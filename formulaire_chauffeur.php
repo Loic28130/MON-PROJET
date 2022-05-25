@@ -8,19 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-    
-<form action="index.php?page=" method="post" class="formulaire">
-    <label for="depart">départ</label>
-    <input type="text" name="depart" required>
 
-    <label for="arrivee">arrivée</label>
-    <input type="text" name="arrivee" required>
+    <div id="onglets">
+        <a href="index.php?page=chauffeur">chauffeur</a>
+        <a href="index.php?page=">livreur</a>
+    </div>
 
-    <label for="heure">email</label>
-    <input type="text" name="heure" required>
+    <form action="index.php?page=" method="post" class="formulaire">
+        <label for="depart">départ</label>
+        <input type="text" name="depart" required>
 
-    <center><button class="bouton">valider</button></center>
-</form>
+        <label for="arrivee">arrivée</label>
+        <input type="text" name="arrivee" required>
+
+        <label for="heure">email</label>
+        <input type="text" name="heure" required>
+
+        <center><button class="bouton">valider</button></center>
+    </form>
     
 </body>
 </html>

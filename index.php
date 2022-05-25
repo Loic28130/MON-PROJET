@@ -23,6 +23,7 @@
        <div class="dropdown">
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
+                <a href="index.php?page=acceuil.php">acceuil</a>
                 <a href="#">mon compte</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
