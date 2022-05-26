@@ -133,10 +133,27 @@ label {
 /* *****************onglets**************** */
 #onglets {
     float: left;
-    margin: 150px 0px 0px 500px;
+    margin: 150px 0px 0px 500px; 
+}
+
+.ongletvert {
     background-color: rgb(80, 147, 138);
-    border: solid;
-    
+    padding: 5px;
+
+}
+
+.ongletblanc {
+    padding: 5px;
+}
+
+.ongletvert a {
+    text-decoration: none;
+    color: black;
+}
+
+.ongletblanc a {
+    text-decoration: none;
+    color: black;
 }
 /* **************************************** */
 
