@@ -18,15 +18,22 @@ if ($result=mysqli_query($connect, $requete)) {
 
   while ($row = mysqli_fetch_assoc($result)){
 
-// Set session variables
-$_SESSION["nom"] = $row["nom"];
+  // Set session variables
+  $_SESSION["nom"] = $row["nom"];
+
+  header ("location:index.php?page=chauffeur");
 }} 
+
+if ($result==false) {
+  echo "erreur";
+
+  header ("location:index.php?page=connection");
+}
 
 else {
   echo "erreur " . $requete . "<br>" . mysqli_error($connect);
 }
 
-header ("location:index.php?page=chauffeur");
 ?>
 
 
