@@ -15,20 +15,26 @@ $saisie_MotDePasse=$_POST ["mot_de_passe"];
 $requete= "SELECT * FROM `client` WHERE email='$saisie_email' AND MotDePasse='$saisie_MotDePasse'";
 if ($result=mysqli_query($connect, $requete)) {
     echo "connecter";
+    
+  $row = mysqli_fetch_assoc($result);
+    var_dump ($row);
+    
 
-  while ($row = mysqli_fetch_assoc($result)){
+    if ($row==false) {
+      echo "erreur de saisie";
+    
+      header ("location:index.php?page=connection");
+      exit();
+    }
 
-  // Set session variables
+    // Set session variables
   $_SESSION["nom"] = $row["nom"];
 
   header ("location:index.php?page=chauffeur");
-}} 
+} 
 
-if ($result==false) {
-  echo "erreur";
 
-  header ("location:index.php?page=connection");
-}
+ 
 
 else {
   echo "erreur " . $requete . "<br>" . mysqli_error($connect);
