@@ -17,11 +17,11 @@ if ($result=mysqli_query($connect, $requete)) {
     echo "connecter";
     
   $row = mysqli_fetch_assoc($result);
-    var_dump ($row);
-    
-
+   
     if ($row==false) {
       echo "erreur de saisie";
+        // gestion d'erreur
+      $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
     
       header ("location:index.php?page=connection");
       exit();
