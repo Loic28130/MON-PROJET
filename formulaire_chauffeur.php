@@ -7,11 +7,17 @@
     </div>
 
     <form action="index.php?page=" method="post" class="formulaire">
-        <label for="depart">départ</label>
-        <input type="text" name="depart" required>
+        <label for="lieux_de_depart">lieux de départ</label>
+        <input type="text" name="lieux_de_depart" required>
 
-        <label for="arrivee">arrivée</label>
-        <input type="text" name="arrivee" required>
+        <label for="adresse_arrivee">adresse d'arrivée</label>
+        <input type="text" name="adresse_arrivee" required>
+
+        <label for="date_de_depart">date de départ</label>
+        <input type="date" name="date_de_depart" required>
+
+        <label for="heure_de_depart">heure de départ</label>
+        <input type="Time" name="heure_de_depart" required>
 
         <center><button class="bouton">valider</button></center>
     </form>
