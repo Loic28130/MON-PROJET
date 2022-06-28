@@ -3,7 +3,7 @@
     
 <form action="index.php?page=inscrire" method="post" class="formulaire">
     <label for="nom">nom</label>
-    <input type="text" name="nom" required>
+    <input type="text" name="nom" required autofocus>
 
     <label for="prenom">prénom</label>
     <input type="text" name="prenom" required>

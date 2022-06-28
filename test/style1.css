@@ -1,82 +1,70 @@
-#contenu
-{
-    marge-gauche : 24 px ;
-    marge-droite : 24 px ;
+*,::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#onglets ul
-{
-    police : normale 14px arial, sans, sans-serif ;
-    -type de style de liste : aucun ;
-    bordure inférieure : 1 pixel gris uni ;
-    marge : 0 ;
-    padding-gauche : 0 ;
-    rembourrage-droite : 0 ;
-    rembourrage en bas : 26 px ;
+html {
+    font-family: 'poppins',sans-serif;
 }
 
-#tabs ul li
-{
-    affichage : en ligne ;
-    flotteur : gauche ;
-    hauteur : 24px ;
-    min-largeur : 80 px ;
-    text-align:center;
-    rembourrage : 0 ;
-    marge : 1px 0px 0px 0px ;
-    bordure : 1 pixel gris uni ;
+body {
+    background: #f1f1f1;
+    height: 100vh;
 }
 
-#tabs ul li.selected
-{
-    bordure inférieure : 1px solide #fff ;
-    couleur de fond : #fff ;
+.container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 660px;
+    height: 300px;
+    background: #f1f1f1;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-
-#tabs ul li a
-{
-    flotteur : gauche ;
-    couleur : #666 ;
-    décoration de texte : aucune ;
-    rembourrage : 4px ;
-    text-align:center;
-    background-color:#eee;
-    min-largeur : 80 px ;
-    bordure inférieure : 1 pixel gris uni ;
+.container-onglets {
+   background: #f1f1f1;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    border-bottom: 1px solid #333;
 }
 
-#tabs ul li a.selected
-{
-    couleur : #000 ;
-    font-weight:gras;
-    couleur de fond : #fff ;
-    bordure inférieure : 1px solide #fff ;
+.onglets {
+   width: 220px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 22px;
+   font-weight: 700;
+   cursor: pointer; 
 }
 
-#tabs ul li a:hover
-{
-    couleur : #000 ;
-    font-weight:gras;
-    couleur de fond : #fff ;
+.onglets:not(:nth-child(3)) {
+    border-right: 1px solid #333;
 }
 
-#récipient
-{
-    fond : blanc ;
-    bordure : 1 pixel gris uni ;
-    bordure supérieure : aucune ;
-    hauteur : 350 px ;
-    largeur : 100 % ;
-    rembourrage : 0 ;
-    marge : 0 ;
-    gauche : 0 ;
-    haut : 0 ;	
+/*anim*/
+
+.active {
+    background: midnightblue;
+    color: #f1f1f1;
+    transition: all 0.3s ease;
 }
 
-iframe
-{
-    bordure : aucune ;
-    marge : 0 ;
-    rembourrage : 0 ;
+.activecontenu {
+    animation: fade 0.5s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
 }

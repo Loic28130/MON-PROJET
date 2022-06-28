@@ -34,6 +34,15 @@
 </header>
 
     <?php
+     if (isset($_SESSION["success"])) {
+        echo ($_SESSION["success"]);
+        unset($_SESSION["success"]);
+    }
+    
+    if (isset($_SESSION["danger"])) {
+        echo ($_SESSION["danger"]);
+        unset($_SESSION["danger"]); 
+    }
 // var_dump ($_POST);
 
 //definition de la 
@@ -72,8 +81,12 @@ switch ($_GET["page"]) {
         include ("formulaire_chauffeur.php");
     break;
 
+    case "prise_RDV":
+        include ("chauffeur.php");
+    break;
+
     case "livreur":
-        include ("formulaire_livreur.php");
+        include ("");
     break;
 
     

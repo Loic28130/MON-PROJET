@@ -6,9 +6,9 @@
         <button class="ongletblanc"><a href="index.php?page=livreur">livreur</a></button>
     </div>
 
-    <form action="index.php?page=" method="post" class="formulaire">
+    <form action="index.php?page=prise_RDV" method="post" class="formulaire">
         <label for="lieux_de_depart">lieux de départ</label>
-        <input type="text" name="lieux_de_depart" required>
+        <input type="text" name="lieux_de_depart" required autofocus>
 
         <label for="adresse_arrivee">adresse d'arrivée</label>
         <input type="text" name="adresse_arrivee" required>

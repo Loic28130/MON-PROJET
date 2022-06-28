@@ -8,7 +8,7 @@
 
     <form action="index.php?page=" method="post" class="formulaire">
         <label for="adresse_de recuperation">adresse de récuperation</label>
-        <input type="text" name="recuperation" required>
+        <input type="text" name="recuperation" required autofocus>
 
         <label for="adresse_de_livraison">adresse de livraison</label>
         <input type="text" name="destination" required>

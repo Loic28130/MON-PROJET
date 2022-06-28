@@ -10,14 +10,43 @@
 
 
 <body>
-    <div id="tabs">
-        <ul>
-            <li><a href="#" rel="url1">Libellé 1</a></li> 
-            <li><a href="#" rel="url2">Libellé 2</a></li> 
-        </ul>
-    </div>
-    
-    <iframe id="container"></iframe>   
+    <div class="container">
 
+        <div class="container-onglets">
+            <div class="onglets active" data-anim="1">destination</div>
+            <div class="onglets" data-anim="2">voyages</div>
+            <div class="onglets" data-anim="3">tarifs</div>
+        </div>
+    
+        <div class="conten activecontenu" data-anim="1">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing eli. 1</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                consequuntur iusto cumque quibusdam ipsa ea voluptas odio alias
+                officia, vel reprehenderit? Aliquid itaque tempore amet culpa ullam
+                quia? Atque, pariatur.</p>
+        </div>
+
+        <div class="conten activecontenu" data-anim="2">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing eli. 2</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                consequuntur iusto cumque quibusdam ipsa ea voluptas odio alias
+                officia, vel reprehenderit? Aliquid itaque tempore amet culpa ullam
+                quia? Atque, pariatur.</p>
+        </div>
+
+        <div class="conten activecontenu" data-anim="3">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing eli. 3</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
+                consequuntur iusto cumque quibusdam ipsa ea voluptas odio alias
+                officia, vel reprehenderit? Aliquid itaque tempore amet culpa ullam
+                quia? Atque, pariatur.</p>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
