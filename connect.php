@@ -12,13 +12,11 @@ if ($result=mysqli_query($connect, $requete)) {
     echo "connecter";
     
     $row = mysqli_fetch_assoc($result);
-
+    // gestion d'erreur
     if ($row==true) {$_SESSION['success'] = 'Vous êtes maintenant connecté';}
    
     else {
-      // echo "erreur de saisie";
-        // gestion d'erreur
-          
+      // echo "erreur de saisie";    
       $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
     
       header ("location:index.php?page=connection");
@@ -27,8 +25,9 @@ if ($result=mysqli_query($connect, $requete)) {
 
     // Set session variables
   $_SESSION["nom"] = $row["nom"];
+  $_SESSION["ID"] = $row["IDclient"];
 
-  header ("location:index.php?page=chauffeur");
+  header ("location:index.php?page=prise_RDV_chauffeur");
 } 
 
 else {

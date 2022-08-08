@@ -91,6 +91,20 @@ a:hover {
     justify-content: space-around;
 }
 
+#message_erreur {
+    text-align: center;
+}
+
+.success {
+    color: green;
+    font-size: xx-large;
+}
+
+.danger {
+    color: red;
+    font-size: xx-large;  
+}
+
 /* **************************************** */
 
 
@@ -198,7 +212,39 @@ label {
     }
 /* **************************************** */
 
+/* ****************tableaux**************** */
+#Contenu  {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    border: solid;
+    border-radius: 5px;
+    margin: 10% 25% 5% 25%;
+    padding: 2%;
+    justify-content: space-around;
+ }
 
+
+ .table  {
+    display: flex;
+    text-align: center;
+    
+ }
+
+ .table1 td {
+    display: flex; 
+    padding: 20px;
+ }
+
+ .table2 td {
+    display: flex;
+    padding: 20px;
+ }
+
+ .modif a { 
+    display: flex;
+    padding: 20px;
+ }
+/* **************************************** */
 
 
 

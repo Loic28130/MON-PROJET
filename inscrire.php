@@ -4,8 +4,8 @@
 
 include("fonction/Bdd.php");
 
-$saisie_nom=$_POST ["nom"];
 $saisie_prenom=$_POST ["prenom"];
+$saisie_nom=$_POST ["nom"];
 $saisie_email=$_POST ["email"];
 $saisie_MotDePasse=$_POST ["mot_de_passe"];
 $requete= "INSERT INTO `client`( `nom`, `prenom`, `email`, `MotDePasse`) VALUES ('$saisie_nom','$saisie_prenom','$saisie_email','$saisie_MotDePasse')";
