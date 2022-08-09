@@ -1,5 +1,5 @@
 <?php
-var_dump ($_POST);
+// var_dump ($_POST);
 
 
 include("fonction/Bdd.php");
@@ -12,9 +12,6 @@ $good_mot_de_passe = verif ($_POST ["mot_de_passe"],$_SESSION["ID"],$connect);
       exit();
   }
 
-// $saisie_nom=$_POST ["nom"];
-// $saisie_prenom=$_POST ["prenom"];
-// $saisie_email=$_POST ["email"];
 $saisie_password=$_POST ["nouveau_mot_de_passe"];
 $SaisieId=$_SESSION["ID"];
 $requete= "UPDATE `client` SET`MotDePasse`='".$saisie_password."' WHERE  `IDclient`='".$SaisieId."'";

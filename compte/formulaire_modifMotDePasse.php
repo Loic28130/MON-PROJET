@@ -1,4 +1,7 @@
-<?php include("fonction/Bdd.php");
+<?php
+// var_dump ($_POST);
+
+include("fonction/Bdd.php");
 
     $SelectID=$_SESSION["ID"];
     $requete="SELECT * FROM `client` WHERE IDclient ='". $SelectID."'" ;
@@ -7,15 +10,7 @@
         // fetch_assoc=recuperée les valeur dans un tableau associatif
     $row = mysqli_fetch_assoc($result)?>
 
-<form action="index.php?page=compte/modifMotDePasse.php" method="post" class="formulaire">
-    <!-- <label for="nom">nom</label>
-    <input type="text" value="<?php echo $row["nom"]; ?>" name="nom" required autofocus> -->
-
-    <!-- <label for="prenom">prénom</label>
-    <input type="text" value="<?php echo $row["prenom"]; ?>" name="prenom" required> -->
-
-    <!-- <label for="email">email</label>
-    <input type="email" value="<?php echo $row["email"]; ?>" name="email" required> -->
+<form action="index.php?page=updateMotDePasse" method="post" class="formulaire">
 
     <label for="mot_de_passe">ancien mot de passe</label>
     <input type="password" name="mot_de_passe">

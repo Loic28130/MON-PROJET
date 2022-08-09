@@ -8,19 +8,9 @@
     $row = mysqli_fetch_assoc($result)?>
 
 <form action="index.php?page=updatePrenom" method="post" class="formulaire">
-    <!-- <label for="nom">nom</label>
-    <input type="text" value="<?php echo $row["nom"]; ?>" name="nom" required autofocus> -->
 
     <label for="prenom">prénom</label>
     <input type="text" value="<?php echo $row["prenom"]; ?>" name="prenom" required>
-
-    <!-- <label for="email">email</label>
-    <input type="email" value="<?php echo $row["email"]; ?>" name="email" required>
-
-    <label for="mot_de_passe">mot de passe</label>
-    <input type="password" name="mot_de_passe"> -->
-
-    
 
     <center><button class="bouton">modifier</button></center>
 </form>
