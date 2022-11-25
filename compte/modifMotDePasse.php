@@ -14,7 +14,7 @@ $good_mot_de_passe = verif ($_POST ["mot_de_passe"],$_SESSION["ID"],$connect);
 
 $saisie_password=$_POST ["nouveau_mot_de_passe"];
 $SaisieId=$_SESSION["ID"];
-$requete= "UPDATE `client` SET`MotDePasse`='".$saisie_password."' WHERE  `IDclient`='".$SaisieId."'";
+$requete= "UPDATE `clients` SET`MotDePasse`='".$saisie_password."' WHERE  `IDclient`='".$SaisieId."'";
 
 if (mysqli_query($connect, $requete)) {
     echo "modif réussi";

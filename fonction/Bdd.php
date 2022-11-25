@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
 // var_dump ($connect);
 
 function verif(string $MotDePasse,int $ID,mysqli $connect) {
- $requete=" SELECT * FROM `client` WHERE `MotDePasse`='$MotDePasse' and`IDclient`='$ID';";
+ $requete=" SELECT * FROM `clients` WHERE `MotDePasse`='$MotDePasse' and`IDclient`='$ID';";
    if ($result=mysqli_query($connect, $requete)) {
       echo "connecter";
       

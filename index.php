@@ -14,12 +14,15 @@
 
 <header>
     <span><h1>chauffeur/livreur privée</h1></span>
+    <a href="index.php?page=index" class="bouton">acceuil</a>
+    
 
     <?php  if (!isset($_SESSION["nom"])) { ?>
-        <a href="index.php?page=connection" class="bouton">se connecter</a>
+        <a href="index.php?page=connection&type=collaborateur" class="bouton">professionnel</a>
+        <a href="index.php?page=connection&type=client" class="bouton">particulier</a>
     <?php } 
 
-       else { ?>
+       else if (isset ($_SESSION["type"]) && $_SESSION["type"]=="client"){ ?>
        <div class="dropdown">
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
@@ -52,8 +55,18 @@
 
         <?php unset($_SESSION["danger"]); 
     }
-    // var_dump ($_POST);
     ?>
+
+
+<?php
+    if (isset($_SESSION["info"])) {?>
+
+        <div class="info"><?php echo ($_SESSION["info"]);?></div>
+
+        <?php unset($_SESSION["info"]); 
+    }
+    ?>
+
 </div>
 
 </div>
