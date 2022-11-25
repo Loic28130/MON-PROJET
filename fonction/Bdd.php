@@ -24,4 +24,6 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
 
 
 
+
+
    ?>

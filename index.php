@@ -1,5 +1,6 @@
 <?php
  session_start();
+ include ("fontion/fonctions.php");
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,17 +18,25 @@
     <a href="index.php?page=index" class="bouton">acceuil</a>
     
 
-    <?php  if (!isset($_SESSION["nom"])) { ?>
+    <?php  if (!connecter()) { ?>
         <a href="index.php?page=connection&type=collaborateur" class="bouton">professionnel</a>
         <a href="index.php?page=connection&type=client" class="bouton">particulier</a>
     <?php } 
 
-       else if (isset ($_SESSION["type"]) && $_SESSION["type"]=="client"){ ?>
+       else if (connecter_client()){ ?>
        <div class="dropdown">
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
                 <a href="index.php?page=MonCompte">mon compte</a>
                 <a href="index.php?page=prise_RDV_chauffeur">prise de RDV</a>
+                <a href="index.php?page=deconnect">se deconnecter</a>
+            </div>
+        </div>
+    <?php } 
+    else if (connecter_collaborateur()){ ?>
+       <div class="dropdown">
+            <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
+            <div class="dropdown-child">
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>
