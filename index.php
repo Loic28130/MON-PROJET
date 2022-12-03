@@ -37,6 +37,8 @@
        <div class="dropdown">
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
+                <a href="index.php?page=deconnect">liste des RDV</a>
+                <a href="index.php?page=deconnect">paiement</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>
@@ -171,6 +173,10 @@
 
         case "delete":
             include ("compte/clients/supprimer.php");
+        break;
+
+        case "liste_chauffeur":
+            include ("compte/collaborateurs/liste_chauffeur.php");
         break;
 
         

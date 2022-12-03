@@ -28,16 +28,27 @@ if ($result=mysqli_query($connect, $requete)) {
       // echo "erreur de saisie";    
       $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
     
-      header ("location:index.php?page=connection");
+      header ("location:index.php?page=connection&type=$type");
       exit();
     }
 
     // Set session variables
   $_SESSION["nom"] = $row["nom"];
-  $_SESSION["ID"] = $row["IDclient"];
   $_SESSION["type"] = $type;
 
-  header ("location:index.php?page=prise_RDV_chauffeur");
+    if ($type=="client"){
+      $_SESSION["ID"] = $row["IDclient"];
+      header ("location:index.php?page=prise_RDV_chauffeur");
+    }
+
+    else if ($type=="collaborateur"){
+      $_SESSION["ID"] = $row["ID_collaborateurs"];
+      header ("location:index.php?page=liste_chauffeur");
+    }
+  
+
+  
+
 } 
 
 else {

@@ -9,7 +9,9 @@
   $requete= "UPDATE `clients` SET`nom`='".$saisie_nom."' WHERE  `IDclient`='".$SaisieId."'";
 
   if (mysqli_query($connect, $requete)) {
-      echo "modif réussi";
+    $_SESSION['success'] = 'modification réussi';
+    $_SESSION["nom"] = $saisie_nom;
+    header ("location:index.php?page=MonCompte");
     } else {
       echo "Error: " . $requete . "<br>" . mysqli_error($connect);
     }
