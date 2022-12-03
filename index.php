@@ -1,6 +1,6 @@
 <?php
  session_start();
- include ("fontion/fonctions.php");
+ include ("fonction/fonctions.php");
  ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -130,47 +130,47 @@
         break;
 
         case "MonCompte":
-            include ("compte/MonCompte.php");
+            include ("compte/clients/MonCompte.php");
         break;
 
         case "F_updatePrenom":
-            include ("compte/formulaire_modifPrenom.php");
+            include ("compte/clients/formulaire_modifPrenom.php");
         break;
 
         case "F_updateNom":
-            include ("compte/formulaire_modifNom.php");
+            include ("compte/clients/formulaire_modifNom.php");
         break;
 
         case "F_updateEmail":
-            include ("compte/formulaire_modifEmail.php");
+            include ("compte/clients/formulaire_modifEmail.php");
         break;
 
         case "F_updateMotDePasse":
-            include ("compte/formulaire_modifMotDePasse.php");
+            include ("compte/clients/formulaire_modifMotDePasse.php");
         break;
 
         case "updatePrenom":
-            include ("compte/modifPrenom.php");
+            include ("compte/clients/modifPrenom.php");
         break;
 
         case "updateNom":
-            include ("compte/modifNom.php");
+            include ("compte/clients/modifNom.php");
         break;
 
         case "updateEmail":
-            include ("compte/modifEmail.php");
+            include ("compte/clients/modifEmail.php");
         break;
 
         case "updateMotDePasse":
-            include ("compte/modifMotDePasse.php");
+            include ("compte/clients/modifMotDePasse.php");
         break;
 
         case "F_delete":
-            include ("compte/formulaire_supprimer.php");
+            include ("compte/clients/formulaire_supprimer.php");
         break;
 
         case "delete":
-            include ("compte/supprimer.php");
+            include ("compte/clients/supprimer.php");
         break;
 
         

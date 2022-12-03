@@ -1,4 +1,30 @@
 <?php
+
+function connectionBDD(){
+    $connect = mysqli_connect ("localhost","root","","monprojet");
+    if (mysqli_connect_errno()) {
+       echo "erreur" . mysqli_connect_error();
+       exit();
+    }
+    return $connect;
+ }
+
+
+function verif(string $MotDePasse,int $ID,mysqli $connect) {
+    $requete=" SELECT * FROM `clients` WHERE `MotDePasse`='$MotDePasse' and`IDclient`='$ID';";
+      if ($result=mysqli_query($connect, $requete)) {
+         echo "connecter";
+         
+         $row = mysqli_fetch_assoc($result);
+   
+         return $row;
+      }
+   
+      return false;
+   
+   }
+
+
     function connecter(){
         return isset($_SESSION["nom"]);
     }

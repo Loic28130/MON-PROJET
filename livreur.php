@@ -1,7 +1,7 @@
 <?php
 var_dump($_POST);
-include("fonction/Bdd.php");
-// $connect = mysqli_connect ("localhost","root","","monprojet");
+
+$connect = connectionBDD();
 // if (mysqli_connect_errno()) {
 //    echo "erreur" . mysqli_connect_error();
 //    exit();

@@ -1,6 +1,6 @@
 <?php
 // var_dump($_POST);
-include("fonction/Bdd.php");
+$connect = connectionBDD();
 
 $saisie_lieux_de_depart=$_POST ["lieux_de_depart"];
 $saisie_adresse_arrivee=$_POST ["adresse_arrivee"];

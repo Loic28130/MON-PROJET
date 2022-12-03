@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php include("fonction/Bdd.php");
+            <?php $connect = connectionBDD();
 
             $SelectID=$_SESSION["ID"];
             $requete="SELECT * FROM `clients` WHERE IDclient ='". $SelectID."'" ;

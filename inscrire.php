@@ -2,7 +2,8 @@
 <?php
 // var_dump($_POST);
 
-include("fonction/Bdd.php");
+
+$connect = connectionBDD();
 
 $saisie_prenom=$_POST ["prenom"];
 $saisie_nom=$_POST ["nom"];
@@ -12,7 +13,7 @@ $requete= "INSERT INTO `clients`( `nom`, `prenom`, `email`, `MotDePasse`) VALUES
 if (mysqli_query($connect, $requete)) {
     // echo "compte créer";
     $_SESSION['success'] = 'compte créer vous pouvez vous connectée';
-    header ("location:index.php?page=connection");
+    header ("location:index.php?page=connection&type=client");
   } else {
     echo "Erreur: " . $requete . "<br>" . mysqli_error($connect);
   }

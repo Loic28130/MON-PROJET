@@ -2,7 +2,7 @@
 <?php
 // var_dump($_POST);
 
-include("fonction/Bdd.php");
+$connect = connectionBDD();
 
 
 $saisie_email=$_POST ["email"];
