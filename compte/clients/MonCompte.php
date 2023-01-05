@@ -30,14 +30,14 @@
 
                     <td><?php echo "*******"; ?></td>
 
-                    <td><a href="index.php?page=delete"<?php echo $row["IDclient"]; ?>> supprimer le compte</a>
+                    <td><a href="index.php?page=delete" onclick="return  confirm('voulez vous vraiment supprimer')">supprimer le compte</a><td>
                 </tr>
 
                 <div class="modif">
-                <a href="index.php?page=F_updatePrenom"<?php echo $row["IDclient"]; ?>>modifier</a></td> 
-                <a href="index.php?page=F_updateNom"<?php echo $row["IDclient"]; ?>>modifier</a></td>
-                <a href="index.php?page=F_updateEmail"<?php echo $row["IDclient"]; ?>>modifier</a></td>
-                <a href="index.php?page=F_updateMotDePasse"<?php echo $row["IDclient"]; ?>>modifier</a></td> 
+                <a href="index.php?page=F_updatePrenom">modifier</a></td> 
+                <a href="index.php?page=F_updateNom">modifier</a></td>
+                <a href="index.php?page=F_updateEmail">modifier</a></td>
+                <a href="index.php?page=F_updateMotDePasse">modifier</a></td> 
                 </div>
             
             <?php

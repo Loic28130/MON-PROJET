@@ -1,13 +1,10 @@
 <?php
-  var_dump ($_POST);
+  // var_dump ($_POST);
 
 
   $connect = connectionBDD();
 
-  // $saisie_nom=$_POST ["nom"];
-  // $saisie_prenom=$_POST ["prenom"];
-  // $saisie_email=$_POST ["email"];
-  // $saisie_password=$_POST ["mot_de_passe"];
+  
   $SaisieId=$_SESSION ["ID"];
   $requete= "DELETE FROM `clients` WHERE IDclient=$SaisieId";
 
