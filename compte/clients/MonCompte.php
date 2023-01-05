@@ -30,7 +30,7 @@
 
                     <td><?php echo "*******"; ?></td>
 
-                    <td><a href="index.php?page=delete" onclick="return  confirm('voulez vous vraiment supprimer')">supprimer le compte</a><td>
+                    <td><a href="index.php?page=delete" onclick="return confirmation()">supprimer le compte</a><td>
                 </tr>
 
                 <div class="modif">
