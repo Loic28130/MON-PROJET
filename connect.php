@@ -37,7 +37,7 @@ if ($result=mysqli_query($connect, $requete)) {
   $_SESSION["type"] = $type;
 
     if ($type=="client"){
-      $_SESSION["ID"] = $row["IDclient"];
+      $_SESSION["ID"] = $row["ID_clients"];
       header ("location:index.php?page=prise_RDV_chauffeur");
     }
 

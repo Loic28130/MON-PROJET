@@ -16,7 +16,7 @@
             <?php $connect = connectionBDD();
 
             $SelectID=$_SESSION["ID"];
-            $requete="SELECT * FROM `clients` WHERE IDclient ='". $SelectID."'" ;
+            $requete="SELECT * FROM `clients` WHERE ID_clients ='". $SelectID."'" ;
 
             if ($result=mysqli_query ($connect,$requete)) {
                 // fetch_assoc=recuperée les valeur dans un tableau associatif

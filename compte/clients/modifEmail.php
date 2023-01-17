@@ -6,7 +6,7 @@
 
   $saisie_email=$_POST ["email"];
   $SaisieId=$_SESSION ["ID"];
-  $requete= "UPDATE `clients` SET`email`='".$saisie_email."' WHERE  `IDclient`='".$SaisieId."'";
+  $requete= "UPDATE `clients` SET`email`='".$saisie_email."' WHERE  `ID_clients`='".$SaisieId."'";
 
   if (mysqli_query($connect, $requete)) {
     $_SESSION['success'] = 'modification réussi';

@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clients` (
-  `IDclient` int(11) NOT NULL,
+  `ID_clients` int(11) NOT NULL,
   `nom` varchar(256) NOT NULL,
   `prenom` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
-  `MotDePasse` varchar(256) NOT NULL
+  `mot_de_passe` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `clients`
 --
 
-INSERT INTO `clients` (`IDclient`, `nom`, `prenom`, `email`, `MotDePasse`) VALUES
+INSERT INTO `clients` (`ID_clients`, `nom`, `prenom`, `email`, `mot_de_passe`) VALUES
 (8, 'gogo', 'juju', 'juju@gmail.com', '123'),
 (9, 'loic', 'giraudet', 'lolo@gmail.com', '789'),
 (10, 'loic', 'gogo', 'gogo@gmail.com', '456'),
@@ -92,11 +92,11 @@ CREATE TABLE `paiement` (
 
 CREATE TABLE `rdv_chauffeur` (
   `ID_RDV_chauffeur` int(11) NOT NULL,
-  `lieux de depart` varchar(50) NOT NULL,
-  `adresse arrivee` varchar(50) NOT NULL,
-  `date de depart` date NOT NULL,
-  `heure de depart` time(6) NOT NULL,
-  `IDclient` int(11) NOT NULL,
+  adresse_de_depart varchar(50) NOT NULL,
+  adresse_arrivee varchar(50) NOT NULL,
+  `date_de_depart` date NOT NULL,
+  `heure_de_depart` time(6) NOT NULL,
+  `ID_clients` int(11) NOT NULL,
   `ID_collaborateurs` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -104,7 +104,7 @@ CREATE TABLE `rdv_chauffeur` (
 -- Déchargement des données de la table `rdv_chauffeur`
 --
 
-INSERT INTO `rdv_chauffeur` (`ID_RDV_chauffeur`, `lieux de depart`, `adresse arrivee`, `date de depart`, `heure de depart`, `IDclient`, `ID_collaborateurs`) VALUES
+INSERT INTO `rdv_chauffeur` (`ID_RDV_chauffeur`, adresse_de_depart, adresse_arrivee, `date_de_depart`, `heure_de_depart`, `ID_clients`, `ID_collaborateurs`) VALUES
 (6, 'b', 'a', '2022-12-04', '15:35:00.000000', 19, NULL);
 
 -- --------------------------------------------------------
@@ -118,7 +118,7 @@ CREATE TABLE `rdv_livreur` (
   `adresse_de_recuperation` varchar(256) NOT NULL,
   `adresse_de_livraison` varchar(256) NOT NULL,
   `date_de_livraison` date NOT NULL,
-  `IDclient` int(11) NOT NULL,
+  `ID_clients` int(11) NOT NULL,
   `ID_collaborateurs` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -130,7 +130,7 @@ CREATE TABLE `rdv_livreur` (
 -- Index pour la table `clients`
 --
 ALTER TABLE `clients`
-  ADD PRIMARY KEY (`IDclient`);
+  ADD PRIMARY KEY (`ID_clients`);
 
 --
 -- Index pour la table `collaborateurs`
@@ -151,7 +151,7 @@ ALTER TABLE `paiement`
 --
 ALTER TABLE `rdv_chauffeur`
   ADD PRIMARY KEY (`ID_RDV_chauffeur`),
-  ADD KEY `idclient` (`IDclient`),
+  ADD KEY `ID_clients` (`ID_clients`),
   ADD KEY `ID_collaborateurs` (`ID_collaborateurs`);
 
 --
@@ -159,7 +159,7 @@ ALTER TABLE `rdv_chauffeur`
 --
 ALTER TABLE `rdv_livreur`
   ADD PRIMARY KEY (`ID_RDV_livrreur`),
-  ADD KEY `IDclient` (`IDclient`) USING BTREE,
+  ADD KEY `ID_clients` (`ID_clients`) USING BTREE,
   ADD KEY `ID_collaborateurs` (`ID_collaborateurs`);
 
 --
@@ -170,7 +170,7 @@ ALTER TABLE `rdv_livreur`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `IDclient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID_clients` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `collaborateurs`
@@ -212,14 +212,14 @@ ALTER TABLE `paiement`
 --
 ALTER TABLE `rdv_chauffeur`
   ADD CONSTRAINT `fk_RDV_chauffeur_collaborateurs` FOREIGN KEY (`ID_collaborateurs`) REFERENCES `collaborateurs` (`ID_collaborateurs`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `fk_client_RDV_chauffeur` FOREIGN KEY (`IDclient`) REFERENCES `clients` (`IDclient`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_client_RDV_chauffeur` FOREIGN KEY (`ID_clients`) REFERENCES `clients` (`ID_clients`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `rdv_livreur`
 --
 ALTER TABLE `rdv_livreur`
   ADD CONSTRAINT `fk_RDV_livreur_collaborateur` FOREIGN KEY (`ID_collaborateurs`) REFERENCES `collaborateurs` (`ID_collaborateurs`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `rdv_livreur_ibfk_1` FOREIGN KEY (`IDclient`) REFERENCES `clients` (`IDclient`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rdv_livreur_ibfk_1` FOREIGN KEY (`ID_clients`) REFERENCES `clients` (`ID_clients`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

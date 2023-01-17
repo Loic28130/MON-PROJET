@@ -11,7 +11,7 @@ function connectionBDD(){
 
 
 function verif(string $MotDePasse,int $ID,mysqli $connect) {
-    $requete=" SELECT * FROM `clients` WHERE `MotDePasse`='$MotDePasse' and`IDclient`='$ID';";
+    $requete=" SELECT * FROM `clients` WHERE `mot_de_passe`='$MotDePasse' and`ID_clients`='$ID';";
       if ($result=mysqli_query($connect, $requete)) {
          echo "connecter";
          

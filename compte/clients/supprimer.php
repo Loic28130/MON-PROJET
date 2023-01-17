@@ -6,7 +6,7 @@
 
   
   $SaisieId=$_SESSION ["ID"];
-  $requete= "DELETE FROM `clients` WHERE IDclient=$SaisieId";
+  $requete= "DELETE FROM `clients` WHERE ID_clients=$SaisieId";
 
   if (mysqli_query($connect, $requete)) {
       session_destroy ();
