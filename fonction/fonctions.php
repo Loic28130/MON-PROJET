@@ -9,6 +9,11 @@ function connectionBDD(){
     return $connect;
  }
 
+ function hachage(string $MotDePasse){
+   return password_hash("$MotDePasse",PASSWORD_BCRYPT);
+   
+ }
+
 
 function verif(string $MotDePasse,int $ID,mysqli $connect) {
     $requete=" SELECT * FROM `clients` WHERE `mot_de_passe`='$MotDePasse' and`ID_clients`='$ID';";
