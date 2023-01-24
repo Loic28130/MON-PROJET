@@ -5,8 +5,6 @@
     <table class=liste>
         <thead>
             <tr class=liste1>
-                <td>Nom</td>
-                <td>Prenom</td>
                 <td>lieux de départ</td>
                 <td>adresse d'arrivée</td>
                 <td>date de départ</td>
@@ -18,9 +16,8 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart  FROM `rdv_chauffeur` as rdv
-                INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 WHERE `ID_collaborateurs` =?" ;
+                $requete="SELECT  adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart  FROM `rdv_chauffeur` 
+                 WHERE `ID_clients` =?" ;
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     // bind mes valeur avec les ?
@@ -29,14 +26,11 @@
                     mysqli_stmt_execute($requetePrepare);
                     // association de la valeur de la colonne id_clients à la variable $id
                     // $row['id_clients']
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeDepart, $adresseArrivee, $dateDeDepart, $heureDeDepart);
+                    mysqli_stmt_bind_result($requetePrepare, $adresseDeDepart, $adresseArrivee, $dateDeDepart, $heureDeDepart);
                     // recuperation des valeurs
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
                     <tr class=liste2>
-                            <td><?php echo $nom; ?></td>
-
-                            <td><?php echo $prenom; ?></td>
 
                             <td><?php echo $adresseDeDepart; ?></td>
 

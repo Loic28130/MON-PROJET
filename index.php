@@ -30,6 +30,7 @@
             <div class="dropdown-child">
                 <a href="index.php?page=MonCompte">mon compte</a>
                 <a href="index.php?page=prise_RDV_chauffeur">prise de RDV</a>
+                <a href="index.php?page=liste_chauffeur_client">mes RDV</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>
@@ -178,6 +179,10 @@
 
         case "liste_chauffeur":
             include ("compte/collaborateurs/liste_chauffeur.php");
+        break;
+
+        case "liste_chauffeur_client":
+            include ("compte/clients/liste_chauffeur_client.php");
         break;
 
         
