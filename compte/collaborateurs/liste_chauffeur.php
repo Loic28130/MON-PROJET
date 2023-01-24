@@ -2,9 +2,11 @@
         <section id="Contenu">
 
 <!-- tableau d'affichage de $result -->
-    <table class=table>
+    <table class=liste>
         <thead>
-            <tr class=table1>
+            <tr class=liste1>
+                <td>Nom</td>
+                <td>Prenom</td>
                 <td>lieux de départ</td>
                 <td>adresse d'arrivée</td>
                 <td>date de départ</td>
@@ -16,40 +18,37 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT * FROM `rdv_chauffeur` WHERE `ID_collaborateurs` ='". $SelectID."'" ;
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart  FROM `rdv_chauffeur` as rdv
+                INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
+                 WHERE `ID_collaborateurs` =?" ;
 
-                if ($result=mysqli_query ($connect,$requete)) {
-
-                    // fetch_assoc=recuperée les valeur dans un tableau associatif
-                    $row = mysqli_fetch_assoc($result);
-                    if ($row==true){ ?>
-                    <tr class=table2>
-                        <td><?php echo $row["lieux de depart"]; ?></td>
-
-                        <td><?php echo $row["adresse arrivee"]; ?></td>
-
-                        <td><?php echo $row["date de depart"]; ?></td>
-
-                        <td><?php echo  $row["heure de depart"]; ?></td>
-                    </tr>
-
-
-                    <!-- <div class="modif">
-                    <a href="index.php?page=F_updatePrenom"<?php echo $row["ID_clients"]; ?>>modifier</a></td> 
-                    <a href="index.php?page=F_updateNom"<?php echo $row["ID_clients"]; ?>>modifier</a></td>
-                    <a href="index.php?page=F_updateEmail"<?php echo $row["ID_clients"]; ?>>modifier</a></td>
-                    <a href="index.php?page=F_updateMotDePasse"<?php echo $row["ID_clients"]; ?>>modifier</a></td> 
-                    </div> -->
-            
-            <?php
-                    }   
-                    else {
-                        echo "vide";
-                        }
+                if($requetePrepare = mysqli_prepare($connect, $requete)){
+                    // bind mes valeur avec les ?
+                    mysqli_stmt_bind_param($requetePrepare, "s", $SelectID);
+                    // execution de la requete prepare
+                    mysqli_stmt_execute($requetePrepare);
+                    // association de la valeur de la colonne id_clients à la variable $id
+                    // $row['id_clients']
+                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeDepart, $adresseArrivee, $dateDeDepart, $heureDeDepart);
+                    // recuperation des valeurs
+                    mysqli_stmt_fetch($requetePrepare);
                 }
+            ?>
+                    <tr class=liste2>
+                            <td><?php echo $nom; ?></td>
 
-                   
-            
+                            <td><?php echo $prenom; ?></td>
+
+                            <td><?php echo $adresseDeDepart; ?></td>
+
+                            <td><?php echo $adresseArrivee; ?></td>
+
+                            <td><?php echo $dateDeDepart; ?></td>
+
+                            <td><?php echo $heureDeDepart; ?></td>
+                        </tr>
+       
+            <?php
             mysqli_close($connect);
             ?>
         </tbody>

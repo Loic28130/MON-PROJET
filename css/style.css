@@ -249,6 +249,34 @@ label {
     display: flex;
     padding: 20px;
  }
+
+ .liste {
+    /* border-spacing: 100px; */
+    border-width:1px; 
+    border-style:solid; 
+    border-color:black;
+    /* width:50%; */
+    border-collapse:collapse
+    
+ }
+
+ .liste td {
+    padding: 10px;
+    border-width:1px;
+    border-style:solid; 
+    border-color:grey;
+    /* width:50%; */
+    vertical-align:middle;
+    text-align: center;
+ }
+
+ .liste1 td {
+    
+ }
+
+ .liste2 td {
+    
+ }
 /* **************************************** */
 
 
