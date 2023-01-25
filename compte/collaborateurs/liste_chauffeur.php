@@ -1,4 +1,7 @@
-
+<div id="onglets">
+        <button class="ongletvert"><a href="index.php?page=liste_chauffeur">chauffeur</a></button>
+        <button class="ongletblanc"><a href="index.php?page=liste_livreur">livreur</a></button>
+    </div>
         <section id="Contenu">
 
 <!-- tableau d'affichage de $result -->

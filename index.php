@@ -181,8 +181,16 @@
             include ("compte/collaborateurs/liste_chauffeur.php");
         break;
 
+        case "liste_livreur":
+            include ("compte/collaborateurs/liste_livreur.php");
+        break;
+
         case "liste_chauffeur_client":
             include ("compte/clients/liste_chauffeur_client.php");
+        break;
+
+        case "liste_livreur_client":
+            include ("compte/clients/liste_livreur_client.php");
         break;
 
         
