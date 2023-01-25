@@ -39,8 +39,8 @@
        <div class="dropdown">
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
-                <a href="index.php?page=deconnect">liste des RDV</a>
-                <a href="index.php?page=deconnect">paiement</a>
+                <a href="index.php?page=liste_chauffeur">liste des RDV</a>
+                <a href="index.php?page=">paiement</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>

@@ -20,7 +20,7 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison , date_de_livraison   FROM `rdv_livrueur` as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison , date_de_livraison   FROM `rdv_livreur` as rdv
                 INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  WHERE `ID_collaborateurs` =?" ;
 
