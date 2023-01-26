@@ -193,6 +193,10 @@
             include ("compte/clients/liste_livreur_client.php");
         break;
 
+        case "paiement":
+            include ("compte/collaborateurs/paiement.php");
+        break;
+
         
         default : include ("acceuil.php");
     }
