@@ -40,7 +40,7 @@
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
                 <a href="index.php?page=liste_chauffeur">liste des RDV</a>
-                <a href="index.php?page=">paiement</a>
+                <a href="index.php?page=paiement">paiement</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>
@@ -196,6 +196,11 @@
         case "paiement":
             include ("compte/collaborateurs/paiement.php");
         break;
+
+        case "validation_paiement":
+            include ("compte/collaborateurs/validation_paiement.php");
+        break;
+
 
         
         default : include ("acceuil.php");

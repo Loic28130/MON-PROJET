@@ -7,7 +7,7 @@
     </div>
 
     <form action="index.php?page=livreur" method="post" class="formulaire">
-        <label for="adresse_de recuperation">adresse de récuperation</label>
+        <label for="adresse_de_recuperation">adresse de récuperation</label>
         <input type="text" name="recuperation" required autofocus>
 
         <label for="adresse_de_livraison">adresse de livraison</label>

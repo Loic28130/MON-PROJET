@@ -1,5 +1,5 @@
 
-<section id="Contenu">
+<section id="paiement">
 
 <!-- tableau d'affichage de $result -->
     <table class=liste>
@@ -51,9 +51,26 @@
                        <?php
                    
 
-                   mysqli_stmt_close($requetePrepare);
-                } 
-            
+                }
+                ?>
+                
+                <form action="index.php?page=validation_paiement" method="POST" class="formulaire">
+
+                <label for="prix">prix</label>
+                <input type="text" name="prix" required autofocus>
+
+                <input type="hidden" name="nom" value="<?php echo $nom;?>"
+                
+                <input type="hidden" name="prenom" value="<?php echo $prenom;?>"
+        
+                <input type="hidden" name="date" value="<?php echo $dateDeDepart;?>"
+        
+                <input type="hidden" name="ID" value="<?php echo $SelectID;?>"
+        
+                <center><button class="bouton">valider</button></center>
+        
+            </form>
+            <?php
             mysqli_close($connect);
             ?>
         </tbody>

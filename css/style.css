@@ -265,7 +265,6 @@ label {
     border-width:1px;
     border-style:solid; 
     border-color:grey;
-    /* width:50%; */
     vertical-align:middle;
     text-align: center;
  }
@@ -276,6 +275,15 @@ label {
 
  .liste2 {
     
+ }
+
+ #paiement td {
+    padding: 10px;
+    border-width:1px;
+    border-style:solid; 
+    border-color:grey;
+    vertical-align:middle;
+    text-align: center;
  }
 /* **************************************** */
 
