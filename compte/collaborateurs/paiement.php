@@ -56,16 +56,13 @@
                 
                 <form action="index.php?page=validation_paiement" method="POST" class="formulaire">
 
+                <input type="hidden" value=<?php echo $nom; ?> name="nom">
+                <input type="hidden" value=<?php echo $prenom; ?> name="prenom">
+                <input type="hidden" value=<?php echo $dateDeDepart; ?> name="date">
+                <input type="hidden" value=<?php echo $SelectID; ?> name="ID">
+
                 <label for="prix">prix</label>
                 <input type="text" name="prix" required autofocus>
-
-                <input type="hidden" name="nom" value="<?php echo $nom;?>"
-                
-                <input type="hidden" name="prenom" value="<?php echo $prenom;?>"
-        
-                <input type="hidden" name="date" value="<?php echo $dateDeDepart;?>"
-        
-                <input type="hidden" name="ID" value="<?php echo $SelectID;?>"
         
                 <center><button class="bouton">valider</button></center>
         
