@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             <?php $connect = connectionBDD();
-
+                $Rdv = $_GET["typeRdv"];
                 $IDcollaborateur=$_SESSION["ID"];
                 $SelectID=$_GET["IDrdvChauffeur"];
                 $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart FROM `rdv_chauffeur` as rdv
@@ -54,7 +54,7 @@
                 }
                 ?>
                 
-                <form action="index.php?page=validation_paiement" method="POST" class="formulaire">
+                <form action="index.php?page=validation_paiement&typeRdv=<?php echo $Rdv?>" method="POST" class="formulaire">
 
                 <input type="hidden" value=<?php echo $nom; ?> name="nom">
                 <input type="hidden" value=<?php echo $prenom; ?> name="prenom">

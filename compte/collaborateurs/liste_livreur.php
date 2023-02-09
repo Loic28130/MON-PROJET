@@ -13,6 +13,7 @@
                 <td>adresse de recuperation</td>
                 <td>adresse de livraison</td>
                 <td>date de livraison</td>
+                <td>paiment</td>
                 
             </tr>
         </thead>
@@ -20,19 +21,18 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison , date_de_livraison   FROM `rdv_livreur` as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison , date_de_livraison, ID_RDV_livreur  FROM rdv_livreur as rdv
                 INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  WHERE `ID_collaborateurs` =?" ;
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
-                    // bind mes valeur avec les ?
+                    
                     mysqli_stmt_bind_param($requetePrepare, "s", $SelectID);
-                    // execution de la requete prepare
+                    
                     mysqli_stmt_execute($requetePrepare);
-                    // association de la valeur de la colonne id_clients à la variable $id
-                    // $row['id_clients']
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison);
-                    // recuperation des valeurs
+                     
+                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur);
+                    
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
                     <tr class=liste2>
@@ -45,6 +45,8 @@
                             <td><?php echo $adresseDeLivraison; ?></td>                          
 
                             <td><?php echo $dateDeLivraison; ?></td>
+
+                            <td><a href="index.php?page=paiement&IDrdvLivreur=<?php echo $IDrdvLivreur; ?>">valider le paiment</a></td>
 
                         </tr>
                        <?php

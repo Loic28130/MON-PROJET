@@ -1,4 +1,4 @@
-<!-- SELECT -->
+
 <?php
 
 $connect = connectionBDD();

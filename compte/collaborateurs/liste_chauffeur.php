@@ -22,7 +22,7 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart , ID_RDV_chauffeur FROM `rdv_chauffeur` as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart , ID_RDV_chauffeur FROM rdv_chauffeur as rdv
                 INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  WHERE `ID_collaborateurs` =?" ;
 
@@ -50,7 +50,7 @@
 
                             <td><?php echo $heureDeDepart; ?></td>
 
-                            <td><a href="index.php?page=paiement&IDrdvChauffeur=<?php echo $IDrdvChauffeur; ?>">valider le paiment</a></td>
+                            <td><a href="index.php?page=paiement&typeRdv=chauffeur&IDrdvChauffeur=<?php echo $IDrdvChauffeur; ?>">valider le paiment</a></td>
                         </tr>
                        <?php
                    };
