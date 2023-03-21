@@ -23,8 +23,8 @@
 
                 $SelectID=$_SESSION["ID"];
                 $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee , date_de_depart , heure_de_depart , ID_RDV_chauffeur FROM rdv_chauffeur as rdv
-                INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 WHERE `ID_collaborateurs` =?" ;
+                 INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
+                  WHERE `ID_collaborateurs` = ? and ID_RDV_chauffeur not in ( SELECT DISTINCT( rdv.ID_RDV_chauffeur) FROM `rdv_chauffeur` as rdv inner join paiement as p on p.ID_RDV_chauffeur = rdv.ID_RDV_chauffeur )";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     // bind mes valeur avec les ?

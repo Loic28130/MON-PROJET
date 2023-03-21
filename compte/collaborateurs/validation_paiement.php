@@ -21,7 +21,7 @@ if( $Rdv == "chauffeur"){
     }
   }
   
-  else if($Rdv == ""){
+  else if($Rdv == "livreur"){
 
   }
 ?>
