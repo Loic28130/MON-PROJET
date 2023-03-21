@@ -21,9 +21,9 @@
             <?php $connect = connectionBDD();
 
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison , date_de_livraison, ID_RDV_livreur  FROM rdv_livreur as rdv
-                INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 WHERE `ID_collaborateurs` =?" ;
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , ID_RDV_livreur FROM rdv_livreur as rdv
+                 INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
+                  WHERE `ID_collaborateurs` = ? and ID_RDV_livreur not in ( SELECT DISTINCT( rdv.ID_RDV_livreur) FROM `rdv_livreur` as rdv inner join paiement as p on p.ID_RDV_livreur = rdv.ID_RDV_livreur)";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     
@@ -46,7 +46,7 @@
 
                             <td><?php echo $dateDeLivraison; ?></td>
 
-                            <td><a href="index.php?page=paiement&IDrdvLivreur=<?php echo $IDrdvLivreur; ?>">valider le paiment</a></td>
+                            <td><a href="index.php?page=paiement&typeRdv=livreur&IDrdvLivreur=<?php echo $IDrdvLivreur; ?>">valider le paiment</a></td>
 
                         </tr>
                        <?php
