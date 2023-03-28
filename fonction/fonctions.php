@@ -16,13 +16,23 @@ function connectionBDD(){
 
 
 function verif(string $MotDePasse,int $ID,mysqli $connect) {
-    $requete=" SELECT * FROM `clients` WHERE `mot_de_passe`='$MotDePasse' and`ID_clients`='$ID';";
-      if ($result=mysqli_query($connect, $requete)) {
-         echo "connecter";
-         
-         $row = mysqli_fetch_assoc($result);
-   
-         return $row;
+    $requete=" SELECT email FROM `clients` WHERE `mot_de_passe`=? and`ID_clients`=?;";
+
+      if ($requetePrepare = mysqli_prepare($connect, $requete)){
+        // bind mes valeur avec les ?
+        mysqli_stmt_bind_param($requetePrepare, "ss", $MotDePasse , $ID);
+        // execution de la requete prepare
+        mysqli_stmt_execute($requetePrepare);
+        // association de la valeur de la colonne id_clients à la variable $id
+        // $row['id_clients']
+        mysqli_stmt_bind_result($requetePrepare, $email);
+        // recuperation des valeurs
+        mysqli_stmt_fetch($requetePrepare);
+
+   var_dump($email);
+   var_dump(isset($email));
+   exit();
+         return isset($email);
       }
    
       return false;

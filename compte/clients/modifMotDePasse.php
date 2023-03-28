@@ -3,8 +3,8 @@
 
 
   $connect = connectionBDD();
-
-  $good_mot_de_passe = verif ($_POST ["mot_de_passe"],$_SESSION["ID"],$connect);
+  $motDePasse = hachage($_POST ["mot_de_passe"]);
+  $good_mot_de_passe = verif ($motDePasse ,$_SESSION["ID"], $connect);
     if ($good_mot_de_passe==false) {
       $_SESSION['danger'] = 'mot de passe actuel incorrect';
       
@@ -12,8 +12,8 @@
         exit();
     }
 
-  $saisie_password=$_POST ["nouveau_mot_de_passe"];
-  $SaisieId=$_SESSION["ID"];
+  $saisie_password = hachage($_POST ["nouveau_mot_de_passe"]);
+  $SaisieId = $_SESSION["ID"];
   $requete= "UPDATE `clients` SET`mot_de_passe`='".$saisie_password."' WHERE  `ID_clients`='".$SaisieId."'";
 
   if (mysqli_query($connect, $requete)) {
