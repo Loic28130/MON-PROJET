@@ -16,7 +16,7 @@ if ($requetePrepare = mysqli_prepare($connect, $requete)){
   mysqli_stmt_bind_param($requetePrepare, "ssss", $saisie_nom, $saisie_prenom, $saisie_email, $saisie_MotDePasse);
   // execution de la requete prepare
   mysqli_stmt_execute($requetePrepare);
-    // echo "compte créer";
+    
     $_SESSION['success'] = 'compte créer vous pouvez vous connectée';
     header ("location:index.php?page=connection&type=client");
   } 
