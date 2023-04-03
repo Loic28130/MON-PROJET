@@ -16,17 +16,23 @@
             <?php $connect = connectionBDD();
 
             $SelectID=$_SESSION["ID"];
-            $requete="SELECT * FROM `clients` WHERE ID_clients ='". $SelectID."'" ;
+            $requete="SELECT prenom, nom, email FROM `clients` WHERE ID_clients = ?" ;
 
-            if ($result=mysqli_query ($connect,$requete)) {
-                // fetch_assoc=recuperée les valeur dans un tableau associatif
-            $row = mysqli_fetch_assoc($result)?>
+            if($requetePrepare = mysqli_prepare($connect, $requete)){
+        
+                mysqli_stmt_bind_param($requetePrepare, "s", $SelectID);
+                
+                mysqli_stmt_execute($requetePrepare);
+               
+                mysqli_stmt_bind_result($requetePrepare ,$prenom ,$nom ,$email);
+                
+                mysqli_stmt_fetch($requetePrepare);?>
                 <tr class=table2>
-                    <td><?php echo $row["prenom"]; ?></td>
+                    <td><?php echo $prenom; ?></td>
 
-                    <td><?php echo $row["nom"]; ?></td>
+                    <td><?php echo $nom; ?></td>
 
-                    <td><?php echo $row["email"]; ?></td>
+                    <td><?php echo $email; ?></td>
 
                     <td><?php echo "*******"; ?></td>
 

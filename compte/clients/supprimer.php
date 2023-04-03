@@ -6,9 +6,15 @@
 
   
   $SaisieId=$_SESSION ["ID"];
-  $requete= "DELETE FROM `clients` WHERE ID_clients=$SaisieId";
+  $requete= "DELETE FROM `clients` WHERE ID_clients= ?";
 
-  if (mysqli_query($connect, $requete)) {
+  if($requetePrepare = mysqli_prepare($connect, $requete)){
+        
+    mysqli_stmt_bind_param($requetePrepare, "s", $SaisieId);
+    
+    mysqli_stmt_execute($requetePrepare);
+   
+    
       session_destroy ();
       session_start();
       $_SESSION["info"] = 'votre compte a bien été supprimer';
@@ -16,7 +22,9 @@
       
       
 
-    } else {
+  } 
+    
+    else {
       echo "Error: " . $requete . "<br>" . mysqli_error($connect);
     }
 
