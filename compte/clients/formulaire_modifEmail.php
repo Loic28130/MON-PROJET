@@ -3,16 +3,22 @@
     $connect = connectionBDD();
 
     $SelectID=$_SESSION["ID"];
-    $requete="SELECT * FROM `clients` WHERE ID_clients ='". $SelectID."'" ;
+    $requete="SELECT email FROM `clients` WHERE ID_clients = ?" ;
 
-    if ($result=mysqli_query ($connect,$requete)) {
-        // fetch_assoc=recuperée les valeur dans un tableau associatif
-    $row = mysqli_fetch_assoc($result)?>
+    if($requetePrepare = mysqli_prepare($connect, $requete)){
+        
+        mysqli_stmt_bind_param($requetePrepare, "s", $SelectID);
+        
+        mysqli_stmt_execute($requetePrepare);
+       
+        mysqli_stmt_bind_result($requetePrepare, $email);
+        
+        mysqli_stmt_fetch($requetePrepare);?>
 
 <form action="index.php?page=updateEmail" method="post" class="formulaire">
 
     <label for="email">email</label>
-    <input type="email" value="<?php echo $row["email"]; ?>" name="email" required>
+    <input type="email" value="<?php echo $email; ?>" name="email" required>
 
     <center><button class="bouton">modifier</button></center>
 </form>

@@ -54,7 +54,7 @@
 
                 }
                 ?>
-                
+                <div class="validation">
                 <form action="index.php?page=validation_paiement&typeRdv=<?php echo $Rdv?>" method="POST" class="formulaire">
 
                 <input type="hidden" value=<?php echo $nom; ?> name="nom">
@@ -68,6 +68,7 @@
                 <center><button class="bouton">valider</button></center>
         
             </form>
+            </div>
             <?php        
             mysqli_close($connect);
             ?>
@@ -136,6 +137,7 @@
                 <center><button class="bouton">valider</button></center>
         
             </form>
+            
             <?php        
             mysqli_close($connect);
             ?>

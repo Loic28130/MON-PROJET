@@ -267,6 +267,7 @@ label {
     border-color:grey;
     vertical-align:middle;
     text-align: center;
+    
  }
 
  .liste1 {
@@ -277,13 +278,16 @@ label {
     
  }
 
- #paiement td {
-    padding: 10px;
+ #paiement {
+    padding: 10px; 
     border-width:1px;
     border-style:solid; 
-    border-color:grey;
     vertical-align:middle;
     text-align: center;
+ }
+
+ .validation {
+    
  }
 /* **************************************** */
 
