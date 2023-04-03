@@ -4,7 +4,7 @@
     $connect = connectionBDD();
 
     $SelectID=$_SESSION["ID"];
-    $requete="SELECT * FROM `clients` WHERE ID_clients = ?" ;
+    $requete="SELECT mot_de_passe FROM `clients` WHERE ID_clients = ?" ;
 
     if($requetePrepare = mysqli_prepare($connect, $requete)){
         
@@ -12,7 +12,7 @@
         
         mysqli_stmt_execute($requetePrepare);
        
-        mysqli_stmt_bind_result($requetePrepare, $email);
+        mysqli_stmt_bind_result($requetePrepare, $MotDePasse);
         
         mysqli_stmt_fetch($requetePrepare);?>
 
