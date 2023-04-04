@@ -1,10 +1,10 @@
 <?php
 // var_dump ($_POST);
 
-
   $connect = connectionBDD();
   $motDePasse = hachage($_POST ["mot_de_passe"]);
   $good_mot_de_passe = verif ($motDePasse ,$_SESSION["ID"], $connect);
+  
     if ($good_mot_de_passe==false) {
       $_SESSION['danger'] = 'mot de passe actuel incorrect';
       

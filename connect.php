@@ -8,45 +8,46 @@ $saisie_email=$_POST ["email"];
 $saisie_MotDePasse=$_POST ["mot_de_passe"];
 $type=$_POST ["type"];
 
-if($type == "client"){
-  $requete= "SELECT ID_clients, mot_de_passe, nom FROM `clients` WHERE email=?";
-}
 
-else if($type == "collaborateur"){
-  $requete= "SELECT ID_collaborateurs, mot_de_passe, nom FROM `collaborateurs` WHERE email=?";
-}
 
-// Si le type n'existe pas
-else {
-  $_SESSION['danger'] = "Le type $type n'est pas geré";
+// if($type == "client"){
+//   $requete= "SELECT ID_clients, mot_de_passe, nom FROM `clients` WHERE email=?";
+// }
+
+// else if($type == "collaborateur"){
+//   $requete= "SELECT ID_collaborateurs, mot_de_passe, nom FROM `collaborateurs` WHERE email=? ";
+// }
+// // Si le type n'existe pas
+// else {
+//   $_SESSION['danger'] = "Le type $type n'est pas geré";
   
-    header ("location:index.php?page=connection&type=$type");
-    exit();
-}
+//     header ("location:index.php?page=connection&type=$type");
+//     exit();
+// }
 
-// preparation de ma requete
-if($requetePrepare = mysqli_prepare($connect, $requete)){
-  // bind mes valeur avec les ?
-  mysqli_stmt_bind_param($requetePrepare, "s", $saisie_email);
-  // execution de la requete prepare
-  mysqli_stmt_execute($requetePrepare);
-  // association de la valeur de la colonne id_clients à la variable $id
-  // $row['id_clients']
-  mysqli_stmt_bind_result($requetePrepare, $id, $motDePasse, $nom);
-  // recuperation des valeurs
-  mysqli_stmt_fetch($requetePrepare);
+// // preparation de ma requete
+// if($requetePrepare = mysqli_prepare($connect, $requete)){
+//   // bind mes valeur avec les ?
+//   mysqli_stmt_bind_param($requetePrepare, "s", $saisie_email);
+//   // execution de la requete prepare
+//   mysqli_stmt_execute($requetePrepare);
+//   // association de la valeur de la colonne id_clients à la variable $id
+//   // $row['id_clients']
+//   mysqli_stmt_bind_result($requetePrepare, $id, $motDePasse, $nom);
+//   // recuperation des valeurs
+//   mysqli_stmt_fetch($requetePrepare);
 
-   // si j'ai un client qui n'existe pas avec un email
-   if ($id == null) {
-    // echo "erreur de saisie";    
-    $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
+//    // si j'ai un client qui n'existe pas avec un email
+//    if ($id == null) {
+//     // echo "erreur de saisie";    
+//     $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
   
-    header ("location:index.php?page=connection&type=$type");
-    exit();
-  }
+//     header ("location:index.php?page=connection&type=$type");
+//     exit();
+//   }
 
   // si le mot de passe ne correspond pas a celui de la bdd
-  if(!password_verify($saisie_MotDePasse, $motDePasse))
+  if(!verifPassword($connect, $saisie_email, $saisie_MotDePasse, $type))
   {
     // echo "erreur de saisie";    
     $_SESSION['danger'] = 'Identifiant ou mot de passe incorrecte';
@@ -60,10 +61,8 @@ if($requetePrepare = mysqli_prepare($connect, $requete)){
   $_SESSION['success'] = 'Vous êtes maintenant connecté';
 
   // Set session variables
-  $_SESSION["nom"] = $nom;
-  $_SESSION["type"] = $type;
-  $_SESSION["ID"] = $id;
-
+  session($connect, $saisie_email, $type);
+  
   if ($type=="client"){
     header ("location:index.php?page=prise_RDV_chauffeur");
   }
@@ -73,13 +72,13 @@ if($requetePrepare = mysqli_prepare($connect, $requete)){
   }
 
   exit();
-}
-else
-{
-  // echo "erreur de saisie";    
-  $_SESSION['danger'] = 'Probleme de verification';
+// }
+// else
+// {
+//   // echo "erreur de saisie";    
+//   $_SESSION['danger'] = 'Probleme de verification';
   
-  header ("location:index.php?page=connection&type=$type");
-  exit();
-}
+//   header ("location:index.php?page=connection&type=$type");
+//   exit();
+// }
 ?>
