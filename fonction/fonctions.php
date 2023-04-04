@@ -121,6 +121,8 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
 
         $_SESSION["type"] = $type;
 
+        $_SESSION["email"] = $saisie_email;
+
        }
     }
 
