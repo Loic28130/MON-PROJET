@@ -14,32 +14,6 @@ function connectionBDD(){
    
  }
 
-
-function verif(string $MotDePasse,int $ID,mysqli $connect) {
-    $requete=" SELECT email FROM `clients` WHERE `mot_de_passe`=? and`ID_clients`=?;";
-
-      if ($requetePrepare = mysqli_prepare($connect, $requete)){
-        // bind mes valeur avec les ?
-        mysqli_stmt_bind_param($requetePrepare, "ss", $MotDePasse , $ID);
-        // execution de la requete prepare
-        mysqli_stmt_execute($requetePrepare);
-        // association de la valeur de la colonne id_clients à la variable $id
-        // $row['id_clients']
-        mysqli_stmt_bind_result($requetePrepare, $email);
-        // recuperation des valeurs
-        mysqli_stmt_fetch($requetePrepare);
-
-//    var_dump($email);
-//    var_dump(isset($email));
-   exit();
-         return isset($email);
-      }
-   
-      return false;
-   
-   }
-
-
     function connecter(){
         return isset($_SESSION["nom"]);
     }
@@ -54,6 +28,11 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
         return isset ($_SESSION["type"]) && $_SESSION["type"] == "collaborateur";
     }
 
+    // permet de savoir si on est connecter en tant que admin
+    function connecter_admin(){
+        return isset ($_SESSION["type"]) && $_SESSION["type"] == "admin";
+    }
+
     function verifPassword(mysqli $connect, string $saisie_email, string $saisie_MotDePasse, string $type){
         
         if($type == "client"){
@@ -61,7 +40,7 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
         }
           
         else if($type == "collaborateur"){
-        $requete= "SELECT ID_collaborateurs, mot_de_passe, nom FROM `collaborateurs` WHERE email=? ";
+            $requete= "SELECT ID_collaborateurs, mot_de_passe, nom FROM `collaborateurs` WHERE email=? ";
         }
         // Si le type n'existe pas
         else {
@@ -98,13 +77,18 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
     function session(mysqli $connect, string $saisie_email, string $type){
        
         if($type == "client"){
-            $requete="SELECT `nom`,`ID_clients` FROM `clients` WHERE `email`= ?";
+            ajoutClientEnSession($connect, $saisie_email);
         }
           
         else if($type == "collaborateur"){
-            $requete="SELECT `nom`,`ID_collaborateurs` FROM `collaborateurs` WHERE `email`= ?";
+            ajoutCollaborateurEnSession($connect, $saisie_email);
         }
+    }
 
+    function ajoutClientEnSession(mysqli $connect, string $saisie_email){
+        
+        $requete="SELECT `nom`,`ID_clients` FROM `clients` WHERE `email`= ?";
+        
        if($requetePrepare = mysqli_prepare($connect, $requete)){
         
         mysqli_stmt_bind_param($requetePrepare, "s", $saisie_email);
@@ -119,10 +103,38 @@ function verif(string $MotDePasse,int $ID,mysqli $connect) {
 
         $_SESSION["ID"] = $id;
 
-        $_SESSION["type"] = $type;
+        $_SESSION["type"] = "client";
 
         $_SESSION["email"] = $saisie_email;
 
+       }
+    }
+
+    function ajoutCollaborateurEnSession(mysqli $connect, string $saisie_email){
+
+        $requete="SELECT `nom`,`ID_collaborateurs`, `admin` FROM `collaborateurs` WHERE `email`= ?";
+
+       if($requetePrepare = mysqli_prepare($connect, $requete)){
+        
+        mysqli_stmt_bind_param($requetePrepare, "s", $saisie_email);
+       
+        mysqli_stmt_execute($requetePrepare);
+       
+        mysqli_stmt_bind_result($requetePrepare, $nom, $id, $admin);
+        
+        mysqli_stmt_fetch($requetePrepare);
+
+        $_SESSION["nom"] = $nom;
+
+        $_SESSION["ID"] = $id;
+
+        if(isset($admin) && $admin == true)
+            $_SESSION["type"] = "admin";
+        
+        else
+            $_SESSION["type"] = "collaborateur";
+
+        $_SESSION["email"] = $saisie_email;
        }
     }
 
