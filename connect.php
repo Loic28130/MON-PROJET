@@ -1,12 +1,13 @@
 
 <?php
-
 $connect = connectionBDD();
 
 $saisie_email=$_POST ["email"];
 
+
 $saisie_MotDePasse=$_POST ["mot_de_passe"];
 $type=$_POST ["type"];
+
 
   // si le mot de passe ne correspond pas a celui de la bdd
   if(!verifPassword($connect, $saisie_email, $saisie_MotDePasse, $type))
@@ -34,7 +35,7 @@ $type=$_POST ["type"];
   }
 
   else if (connecter_admin()){
-    header ("location:index.php?page=liste_livreur");
+    header ("location:index.php?page=liste_chauffeur_admin");
   }
 
   exit();

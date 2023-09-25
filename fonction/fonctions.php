@@ -137,5 +137,31 @@ function connectionBDD(){
         $_SESSION["email"] = $saisie_email;
        }
     }
-
+function ChoixDuCollaborateurd(){
+    <?php
+$select1 = 'select * FROM contact,secteur ORDER BY nom_secteur '; // Ta requette
+$resultat = mysql_query($select1) or die('Erreur SQL !<br />'.$select1.'<br />'.mysql_error());  // Traitement de la requete
+ 
+echo 'Secteur 1 : <select name="secteur1">'; // Ton sélect
+ 
+while ($donnees = mysql_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs (merci Taguan :D)
+ 
+$secteur_contact = $donnees['id_secteur1'] ; // Là tu récupère les données que tu souhaite comparer
+$nom_secteur = $donnees['nom_secteur'] ; // Même chose
+ 
+       if ($secteur_contact == $nom_secteur) { // Ta comparaison à toi de la choisir
+         
+                    echo ' <option value="'.$donnees['nom_secteur'].'" selected="selected">'.$donnees['nom_secteur'].'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
+                     
+          }
+          else
+          {
+         
+                    echo '<option value="'.$donnees['nom_secteur'].'" >'.$donnees['nom_secteur'].'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
+ 
+       }
+ 
+}
+echo'</select></td>';
+}
 ?>

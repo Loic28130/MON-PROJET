@@ -1,6 +1,6 @@
 <div id="onglets">
-    <button class="ongletvert"><a href="index.php?page=liste_chauffeur">chauffeur</a></button>
-    <button class="ongletblanc"><a href="index.php?page=liste_livreur">livreur</a></button>
+    <button class="ongletvert"><a href="index.php?page=liste_chauffeur_admin">chauffeur</a></button>
+    <button class="ongletblanc"><a href="index.php?page=liste_livreur_admin">livreur</a></button>
 </div>
 
 <section id="Contenu">
@@ -15,7 +15,8 @@
                 <td>adresse d'arrivée</td>
                 <td>date de départ</td>
                 <td>heure de départ</td>
-                <td>paiment</td>
+                <td>affectation chauffeur</td>
+                <td>paiment effectuée</td>
                 
             </tr>
         </thead>
@@ -52,7 +53,8 @@
 
                             <td><?php echo $heureDeDepart; ?></td>
 
-                            <td><a href="index.php?page=paiement&typeRdv=chauffeur&IDrdvChauffeur=<?php echo $IDrdvChauffeur; ?>">valider le paiment</a></td>
+                            <td><?php  ?></td>  
+
                         </tr>
                        <?php
                    };
