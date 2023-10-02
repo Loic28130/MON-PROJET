@@ -137,31 +137,29 @@ function connectionBDD(){
         $_SESSION["email"] = $saisie_email;
        }
     }
-function ChoixDuCollaborateurd(){
-    <?php
-$select1 = 'select * FROM contact,secteur ORDER BY nom_secteur '; // Ta requette
-$resultat = mysql_query($select1) or die('Erreur SQL !<br />'.$select1.'<br />'.mysql_error());  // Traitement de la requete
- 
-echo 'Secteur 1 : <select name="secteur1">'; // Ton sélect
- 
-while ($donnees = mysql_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs (merci Taguan :D)
- 
-$secteur_contact = $donnees['id_secteur1'] ; // Là tu récupère les données que tu souhaite comparer
-$nom_secteur = $donnees['nom_secteur'] ; // Même chose
- 
-       if ($secteur_contact == $nom_secteur) { // Ta comparaison à toi de la choisir
-         
-                    echo ' <option value="'.$donnees['nom_secteur'].'" selected="selected">'.$donnees['nom_secteur'].'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
-                     
-          }
-          else
-          {
-         
-                    echo '<option value="'.$donnees['nom_secteur'].'" >'.$donnees['nom_secteur'].'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
- 
-       }
- 
-}
-echo'</select></td>';
-}
-?>
+    function ChoixDuCollaborateurd(){
+        $requete = "SELECT * FROM `collaborateurs` ORDER BY `admin` DESC"; // Ta requette
+    $resultat = mysql_query($requete) or die('Erreur SQL !<br />'.$requete.'<br />'.mysql_error());  // Traitement de la requete
+    
+    echo 'Secteur 1 : <select name="secteur1">'; // Ton sélect
+    
+    while ($donnees = mysql_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs 
+    
+    $collaborateur = $donnees['ID_collaborateurs'] ; // Là tu récupère les données que tu souhaite comparer
+    $nom = $donnees['nom'] ; // Même chose
+    
+        if ($collaborateur == $nom) { // Ta comparaison à toi de la choisir
+            
+                        echo ' <option value="'.$donnees['nom'].'" selected="selected">'.$donnees['nom'].'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
+                        
+            }
+            else
+            {
+            
+                        echo '<option value="'.$donnees['nom'].'" >'.$donnees['nom'].'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
+    
+        }
+    
+    }
+    echo'</select></td>';
+}?>

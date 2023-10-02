@@ -22,20 +22,20 @@
         
         <tbody>
             <?php $connect = connectionBDD();
-            // var_dump()
-                // $type=$_SESSION["type"];
+
                 $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur , prix , ID_paiement FROM rdv_livreur as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , prix , ID_RDV_livreur FROM rdv_livreur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 LEFT JOIN paiement as p on rdv.ID_RDV_livreur=p.ID_RDV_livreur";
+                 INNER JOIN paiement on rdv.ID_clients=ID_paiement
+                  WHERE `ID_collaborateurs` = ? and ID_RDV_livreur ";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     
-                    mysqli_stmt_bind_param($requetePrepare, $SelectID);
+                    mysqli_stmt_bind_param($requetePrepare, "s", $SelectID);
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur, $prix, $IDpaiement);
+                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $prix, $IDrdvLivreur);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -50,9 +50,11 @@
 
                             <td><?php echo $dateDeLivraison; ?></td>
 
-                            <td><?php ?></td>
+                            <td><?php echo $paiement; ?></td>
 
-                            <td><?php echo $prix; ?></td>
+                            <td><?php ChoixDuCollaborateurd()?></td>
+
+                            <td><?php ?></td>
 
                         </tr>
                        <?php
