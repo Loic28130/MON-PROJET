@@ -150,13 +150,13 @@ function connectionBDD(){
     
         if ($collaborateur == $nom) { // Ta comparaison à toi de la choisir
             
-                        echo ' <option value="'.$donnees['nom'].'" selected="selected">'.$donnees['nom'].'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
+                        echo ' <option value="'.$collaborateur.'" selected="selected">'.$nom.'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
                         
             }
             else
             {
             
-                        echo '<option value="'.$donnees['nom'].'" >'.$donnees['nom'].'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
+                        echo '<option value="'.$collaborateur.'" >'.$nom.'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
     
         }
     
