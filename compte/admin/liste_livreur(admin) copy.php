@@ -27,7 +27,7 @@
                 $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , prix , ID_RDV_livreur FROM rdv_livreur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  INNER JOIN paiement on rdv.ID_clients=ID_paiement
-                  WHERE `ID_collaborateurs` = ? and ID_RDV_livreur ";
+                  WHERE `ID_collaborateurs` = ?  and ID_RDV_livreur";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     

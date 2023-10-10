@@ -138,10 +138,10 @@ function connectionBDD(){
        }
     }
     function ChoixDuCollaborateurd(){
-        $requete = "SELECT * FROM `collaborateurs` ORDER BY `admin` DESC"; // Ta requette
+        $requete = "SELECT * FROM `collaborateurs` ORDER BY `ID_collaborateurs` DESC"; // Ta requette
     $resultat = mysql_query($requete) or die('Erreur SQL !<br />'.$requete.'<br />'.mysql_error());  // Traitement de la requete
     
-    echo 'Secteur 1 : <select name="secteur1">'; // Ton sélect
+    echo 'collaborateurs : <select name="collaborateurs">'; // Ton sélect
     
     while ($donnees = mysql_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs 
     
