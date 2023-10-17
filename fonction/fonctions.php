@@ -137,7 +137,7 @@ function connectionBDD(){
         $_SESSION["email"] = $saisie_email;
        }
     }
-    function ChoixDuCollaborateurd(){
+    function ChoixDuCollaborateurs(){
         $requete = "SELECT * FROM `collaborateurs` ORDER BY `ID_collaborateurs` DESC"; // Ta requette
     $resultat = mysql_query($requete) or die('Erreur SQL !<br />'.$requete.'<br />'.mysql_error());  // Traitement de la requete
     

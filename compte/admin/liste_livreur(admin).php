@@ -26,7 +26,8 @@
                 // $SelectID=$_SESSION["ID"];
                 $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur , prix , ID_paiement FROM rdv_livreur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 LEFT JOIN paiement as p on rdv.ID_RDV_livreur=p.ID_RDV_livreur";
+                 LEFT JOIN paiement as p on rdv.ID_RDV_livreur=p.ID_RDV_livreur
+                 ORDER BY date_de_livraison DESC";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     
@@ -49,7 +50,7 @@
 
                             <td><?php echo $dateDeLivraison; ?></td>
 
-                            <td><?php echo 'collaborateurs : <select name="collaborateurs">'; ?></td>
+                            <td><?php  ?></td>
 
                             <td><?php echo $prix; ?></td>
 
