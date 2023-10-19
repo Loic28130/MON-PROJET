@@ -50,7 +50,7 @@
 
                             <td><?php echo $dateDeLivraison; ?></td>
 
-                            <td><?php  ?></td>
+                            <td><?php  ChoixDuCollaborateurs(); ?></td>
 
                             <td><?php echo $prix; ?></td>
 

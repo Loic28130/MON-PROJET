@@ -51,6 +51,8 @@
             <div class="boutonmenuprincipal"><?php echo ($_SESSION["nom"]);?></div>
             <div class="dropdown-child">
                 <a href="index.php?page=liste_chauffeur_admin">liste des RDV</a>
+                <a href="index.php?page=liste_clients_admin">liste des clients</a>
+                <a href="index.php?page=liste_collaborateurs_admin">liste des collaborateurs</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
             </div>
         </div>
@@ -193,6 +195,14 @@
 
         case "liste_livreur_admin":
             include ("compte/admin/liste_livreur(admin).php");
+        break;
+
+        case "liste_clients_admin":
+            include ("compte/admin/liste_clients(admin).php");
+        break;
+
+        case "liste_collaborateurs_admin":
+            include ("compte/admin/liste_collaborateurs(admin).php");
         break;
 
         case "liste_chauffeur":

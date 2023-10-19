@@ -138,7 +138,7 @@ function connectionBDD(){
        }
     }
     function ChoixDuCollaborateurs(){
-        $requete = "SELECT * FROM `collaborateurs` ORDER BY `ID_collaborateurs` DESC"; // Ta requette
+        $requete = "SELECT ID_collaborateurs , nom , prenom FROM `collaborateurs` ORDER BY `ID_collaborateurs`"; // Ta requette
     $resultat = mysql_query($requete) or die('Erreur SQL !<br />'.$requete.'<br />'.mysql_error());  // Traitement de la requete
     
     echo 'collaborateurs : <select name="collaborateurs">'; // Ton sélect
@@ -146,17 +146,18 @@ function connectionBDD(){
     while ($donnees = mysql_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs 
     
     $collaborateur = $donnees['ID_collaborateurs'] ; // Là tu récupère les données que tu souhaite comparer
-    $nom = $donnees['nom'] ; // Même chose
+    $nom = $donnees['nom'] ;
+    $prenom = $donnees['prenom'] ; // Même chose
     
         if ($collaborateur == $nom) { // Ta comparaison à toi de la choisir
             
-                        echo ' <option value="'.$collaborateur.'" selected="selected">'.$nom.'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
+                        echo ' <option value="'.$collaborateur.'" selected="selected">'.$nom,$prenom.'</option>  ';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
                         
             }
             else
             {
             
-                        echo '<option value="'.$collaborateur.'" >'.$nom.'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
+                        echo '<option value="'.$collaborateur.'" >'.$nom,$prenom.'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
     
         }
     
