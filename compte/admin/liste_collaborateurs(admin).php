@@ -1,5 +1,5 @@
 <div id="onglets">
-    <button class="ongletvert"><a href="index.php?page=liste_chauffeur_admin">ajout collaborateurs</a></button>
+    <button class="ongletvert"><a href="index.php?page=F_ajout_collaborateurs_admin">ajout collaborateurs</a></button>
 </div>
 
 <section id="Contenu">

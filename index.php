@@ -54,6 +54,7 @@
                 <a href="index.php?page=liste_clients_admin">liste des clients</a>
                 <a href="index.php?page=liste_collaborateurs_admin">liste des collaborateurs</a>
                 <a href="index.php?page=deconnect">se deconnecter</a>
+                <a href="index.php?page=test">test</a>
             </div>
         </div>
     <?php } ?> 
@@ -129,6 +130,7 @@
             include ("deconnect.php");
         break;
 
+        // client
         case "prise_RDV_chauffeur":
             include ("formulaire_chauffeur.php");
         break;
@@ -189,6 +191,15 @@
             include ("compte/clients/supprimer.php");
         break;
 
+        case "liste_chauffeur_client":
+            include ("compte/clients/liste_chauffeur_client.php");
+        break;
+
+        case "liste_livreur_client":
+            include ("compte/clients/liste_livreur_client.php");
+        break;
+
+        // admin
         case "liste_chauffeur_admin":
             include ("compte/admin/liste_chauffeur(admin).php");
         break;
@@ -205,6 +216,15 @@
             include ("compte/admin/liste_collaborateurs(admin).php");
         break;
 
+        case "F_ajout_collaborateurs_admin":
+            include ("compte/admin/formulaire_ajout_collaborateur.php");
+        break;
+
+        case "ajout_collaborateurs_admin":
+            include ("compte/admin/ajout_collaborateur.php");
+        break;
+
+        // collaborateur
         case "liste_chauffeur":
             include ("compte/collaborateurs/liste_chauffeur.php");
         break;
@@ -213,20 +233,16 @@
             include ("compte/collaborateurs/liste_livreur.php");
         break;
 
-        case "liste_chauffeur_client":
-            include ("compte/clients/liste_chauffeur_client.php");
-        break;
-
-        case "liste_livreur_client":
-            include ("compte/clients/liste_livreur_client.php");
-        break;
-
         case "paiement":
             include ("compte/collaborateurs/paiement.php");
         break;
 
         case "validation_paiement":
             include ("compte/collaborateurs/validation_paiement.php");
+        break;
+      // test
+        case "test":
+            include ("test/test.php");
         break;
 
 

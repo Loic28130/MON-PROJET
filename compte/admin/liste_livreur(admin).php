@@ -14,9 +14,7 @@
                 <td>adresse de recuperation</td>
                 <td>adresse de livraison</td>
                 <td>date de livraison</td>
-                <td>affectation chauffeur</td>
-                <td>paiment effectuée</td>
-                
+                <td>affectation chauffeur</td> 
             </tr>
         </thead>
         
@@ -24,7 +22,7 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur , prix , ID_paiement FROM rdv_livreur as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur , ID_paiement FROM rdv_livreur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  LEFT JOIN paiement as p on rdv.ID_RDV_livreur=p.ID_RDV_livreur
                  ORDER BY date_de_livraison DESC";
@@ -35,7 +33,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur, $prix, $IDpaiement);
+                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur, $IDpaiement);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -51,9 +49,6 @@
                             <td><?php echo $dateDeLivraison; ?></td>
 
                             <td><?php  ChoixDuCollaborateurs(); ?></td>
-
-                            <td><?php echo $prix; ?></td>
-
                         </tr>
                        <?php
                    };

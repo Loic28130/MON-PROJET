@@ -16,7 +16,6 @@
                 <td>date de départ</td>
                 <td>heure de départ</td>
                 <td>affectation chauffeur</td>
-                <td>paiment effectuée</td>
                 
             </tr>
         </thead>
@@ -51,9 +50,7 @@
 
                             <td><?php echo $dateDeDepart; ?></td>
 
-                            <td><?php echo $heureDeDepart; ?></td>
-
-                            <td><?php  ?></td>  
+                            <td><?php echo $heureDeDepart; ?></td>  
 
                         </tr>
                        <?php
