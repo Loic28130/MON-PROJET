@@ -15,6 +15,7 @@
                 <td>adresse d'arrivée</td>
                 <td>date de depart</td>
                 <td>heure de depart</td>
+                <td>collaborateur</td>
                 <td>choix du collaborateur</td> 
             </tr>
         </thead>
@@ -23,8 +24,9 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , rdv.ID_RDV_chauffeur FROM rdv_chauffeur as rdv
+                $requete="SELECT  col.nom , col.prenom , cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , rdv.ID_RDV_chauffeur FROM rdv_chauffeur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
+                 LEFT JOIN collaborateurs as col on rdv.ID_collaborateurs=col.ID_collaborateurs
                  ORDER BY date_de_depart DESC";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
@@ -33,14 +35,14 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $IDrdvChauffeur);
+                    mysqli_stmt_bind_result($requetePrepare, $ColNom, $ColPrenom, $CliNom, $CliPrenom, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $IDrdvChauffeur);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
                     <tr class=liste2>
-                            <td><?php echo $nom; ?></td>
+                            <td><?php echo $CliNom; ?></td>
 
-                            <td><?php echo $prenom; ?></td>
+                            <td><?php echo $CliPrenom; ?></td>
 
                             <td><?php echo $adresseDeDepart; ?></td>
 
@@ -49,6 +51,8 @@
                             <td><?php echo $dateDeDepart; ?></td>
 
                             <td><?php echo $HeureDeDepart; ?></td>
+
+                            <td><?php echo $ColNom," ", $ColPrenom; ?></td>
 
                             <td><?php  ChoixDuCollaborateurs(); ?></td>
                         </tr>
