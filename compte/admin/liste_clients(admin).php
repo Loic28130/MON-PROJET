@@ -36,7 +36,7 @@
 
                             <td><?php echo $adresseMail; ?></td>
 
-                            <td><a href="index.php?page=historique_client_chauffeur_admin&IDclient=<?php echo $IDclients?>">visualiser</a></td>
+                            <td><a href="index.php?page=historique_client_chauffeur_admin&IDclient=<?php echo $IDclients?>">chauffeur</a>/<a href="index.php?page=historique_client_livreur_admin&IDclient=<?php echo $IDclients?>">livreur</a></td>
                         </tr>
                        <?php
                    };

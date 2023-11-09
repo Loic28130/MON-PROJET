@@ -228,6 +228,10 @@
             include ("compte/admin/historique_client_chaffeur(admin).php");
         break;
 
+        case "historique_client_livreur_admin":
+            include ("compte/admin/historique_client_livreur(admin).php");
+        break;
+
         // collaborateur
         case "liste_chauffeur":
             include ("compte/collaborateurs/liste_chauffeur.php");
