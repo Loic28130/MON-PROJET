@@ -22,9 +22,8 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur , ID_paiement FROM rdv_livreur as rdv
+                $requete="SELECT cli.nom , cli.prenom , adresse_de_recuperation , adresse_de_livraison, date_de_livraison , rdv.ID_RDV_livreur  FROM rdv_livreur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
-                 LEFT JOIN paiement as p on rdv.ID_RDV_livreur=p.ID_RDV_livreur
                  ORDER BY date_de_livraison DESC";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
@@ -33,7 +32,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur, $IDpaiement);
+                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseDeRecuperation, $adresseDeLivraison, $dateDeLivraison, $IDrdvLivreur);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>

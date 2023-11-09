@@ -9,6 +9,7 @@
                 <td>Nom</td>
                 <td>Prenom</td>
                 <td>adresse mail</td>
+                <td>historique</td>
             </tr>
         </thead>
         
@@ -16,7 +17,7 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT nom , prenom , email FROM clients";
+                $requete="SELECT ID_clients , nom , prenom , email FROM clients";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     
@@ -24,7 +25,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseMail);
+                    mysqli_stmt_bind_result($requetePrepare , $IDclients , $nom, $prenom, $adresseMail);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -34,6 +35,8 @@
                             <td><?php echo $prenom; ?></td>
 
                             <td><?php echo $adresseMail; ?></td>
+
+                            <td><a href="index.php?page=historique_client_chauffeur_admin&IDclient=<?php echo $IDclients?>">visualiser</a></td>
                         </tr>
                        <?php
                    };
