@@ -24,7 +24,7 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT  col.nom , col.prenom , cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , rdv.ID_RDV_chauffeur FROM rdv_chauffeur as rdv
+                $requete="SELECT  col.nom , col.prenom , cli.nom , cli.prenom , adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , rdv.ID_RDV_chauffeur , col.ID_collaborateurs FROM rdv_chauffeur as rdv
                  INNER JOIN clients as cli on rdv.ID_clients=cli.ID_clients
                  LEFT JOIN collaborateurs as col on rdv.ID_collaborateurs=col.ID_collaborateurs
                  ORDER BY date_de_depart DESC";
@@ -35,7 +35,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $ColNom, $ColPrenom, $CliNom, $CliPrenom, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $IDrdvChauffeur);
+                    mysqli_stmt_bind_result($requetePrepare, $ColNom, $ColPrenom, $CliNom, $CliPrenom, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $IDrdvChauffeur , $IDcollaborateurs);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -54,7 +54,9 @@
 
                             <td><?php echo $ColNom," ", $ColPrenom; ?></td>
 
-                            <td><?php  ChoixDuCollaborateurs(); ?></td>
+                            <td><?php  $collaborateurs=ChoixDuCollaborateurs(); ?></td>
+
+                            <td><button><a href="validation_collaborateurs_chauffeur&IDcollaborateurs<?php echo $collaborateurs?>&IDrdvChauffeur<?php echo $IDrdvChauffeur ?>"></a>valider</button></td>
                         </tr>
                        <?php
                    };

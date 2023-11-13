@@ -232,6 +232,10 @@
             include ("compte/admin/historique_client_livreur(admin).php");
         break;
 
+        case "validation_collaborateurs_chauffeur":
+            include ("compte/admin/affectation_collaborateurs(chauffeur).php");
+        break;
+
         // collaborateur
         case "liste_chauffeur":
             include ("compte/collaborateurs/liste_chauffeur.php");
