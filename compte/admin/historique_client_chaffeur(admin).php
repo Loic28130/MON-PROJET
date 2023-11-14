@@ -11,14 +11,16 @@
                 <td>adresse de depart</td>
                 <td>adresse d'arrivée</td>
                 <td>date de depart</td>
-                <td>heure de depart</td> 
+                <td>heure de depart</td>
+                <td>paiement</td> 
             </tr>
         </thead>
         
         <tbody>
             <?php $connect = connectionBDD();
                 $IDclients=$_GET ["IDclient"];
-                $requete="SELECT adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , rdv.ID_clients  FROM rdv_chauffeur as rdv
+                $requete="SELECT adresse_de_depart , adresse_arrivee, date_de_depart , heure_de_depart , p.prix , rdv.ID_clients  FROM rdv_chauffeur as rdv
+                LEFT JOIN paiement as p on rdv.ID_RDV_chauffeur=p.ID_RDV_chauffeur
                  WHERE ID_clients = $IDclients
                  ORDER BY date_de_depart DESC";
 
@@ -28,7 +30,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $IDrdvClients);
+                    mysqli_stmt_bind_result($requetePrepare, $adresseDeDepart , $adresseArrivée , $dateDeDepart , $HeureDeDepart , $prix , $IDrdvClients);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -41,6 +43,9 @@
                             <td><?php echo $dateDeDepart; ?></td>
 
                             <td><?php echo $HeureDeDepart; ?></td>
+
+                            <td><?php echo $prix; ?></td>
+
 
                         </tr>
                        <?php

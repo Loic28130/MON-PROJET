@@ -9,7 +9,7 @@
                 <td>Nom</td>
                 <td>Prenom</td>
                 <td>adresse mail</td>
-                <td>historique</td>
+                <td>historique des prestations</td>
             </tr>
         </thead>
         
