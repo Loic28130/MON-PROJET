@@ -289,6 +289,9 @@ label {
  .validation {
     
  }
+
+ table.tb { width:300px; border-collapse: collapse; }
+  .tb th, .tb td { border: solid 1px #777; padding: 5px; }
 /* **************************************** */
 
 

@@ -5,12 +5,12 @@
 <section id="Contenu">
 
     <!-- tableau d'affichage de $result -->
-    <table class=liste>
-        <thead>
-            <tr class=liste1>
-                <td>Nom</td>
-                <td>Prenom</td>
-                <td>adresse mail</td>
+    <table class=tb>
+    <thead style="background: navy; color: white;">
+            <tr class=>
+                <td>Nom:</td>
+                <td>Prenom:</td>
+                <td>adresse mail:</td>
             </tr>
         </thead>
         
@@ -30,13 +30,24 @@
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
-                    <tr class=liste2>
+                    <tr class=>
                             <td><?php echo $nom; ?></td>
 
                             <td><?php echo $prenom; ?></td>
 
                             <td><?php echo $adresseMail; ?></td>
-                        </tr>
+
+                            <td><a href="index.php?page=F_updateCollaborateur">modifier</a></td>
+
+                            <td><a href="index.php?page=delete(admin)" onclick="return confirmation()">supprimer le collaborateur</a><td>
+                    </tr>
+
+                    <!-- <div class="modif">
+                    <a href="index.php?page=F_updatePrenom">modifier</a></td> 
+                    <a href="index.php?page=F_updateNom">modifier</a></td>
+                    <a href="index.php?page=F_updateEmail">modifier</a></td>
+                    <a href="index.php?page=F_updateMotDePasse">modifier</a></td> 
+                    </div> -->
                        <?php
                    };
 

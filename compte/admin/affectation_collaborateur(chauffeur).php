@@ -14,7 +14,7 @@ var_dump ($_GET);
     mysqli_stmt_execute($requetePrepare);
 
     $_SESSION['success'] = 'valider';
-    header ("location:index.php?page=validation_collaborateurs_chauffeur");
+    header ("location:index.php?page=liste_chauffeur_admin");
     } 
     
     else {
