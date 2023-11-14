@@ -1,4 +1,6 @@
-
+<div id="onglets">
+    <button class="ongletvert"><a href="index.php?page=liste_clients_admin"><-retour</a></button>
+</div>
 
 <section id="Contenu">
 
