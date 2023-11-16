@@ -236,6 +236,14 @@
             include ("compte/admin/affectation_collaborateurs(chauffeur).php");
         break;
 
+        case "Fmodif_collaborateur(admin)":
+            include ("compte/admin/formulaire_collaborateurs.php");
+        break;
+
+        case "modif_collaborateur(admin)":
+            include ("compte/admin/modif_collaborateurs.php");
+        break;
+
         case "delete(admin)":
             include ("compte/admin/supprimer(admin).php");
         break;

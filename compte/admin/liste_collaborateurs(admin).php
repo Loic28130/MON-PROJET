@@ -18,7 +18,7 @@
             <?php $connect = connectionBDD();
             // var_dump()
                 // $SelectID=$_SESSION["ID"];
-                $requete="SELECT nom , prenom , email FROM collaborateurs";
+                $requete="SELECT ID_collaborateurs , nom , prenom , email FROM collaborateurs";
 
                 if($requetePrepare = mysqli_prepare($connect, $requete)){
                     
@@ -26,7 +26,7 @@
                     
                     mysqli_stmt_execute($requetePrepare);
                      
-                    mysqli_stmt_bind_result($requetePrepare, $nom, $prenom, $adresseMail);
+                    mysqli_stmt_bind_result($requetePrepare, $ID_collaborateurs , $nom, $prenom, $adresseMail);
                     
                    while (mysqli_stmt_fetch($requetePrepare)){
                     ?>
@@ -37,7 +37,7 @@
 
                             <td><?php echo $adresseMail; ?></td>
 
-                            <td><a href="index.php?page=F_updateCollaborateur">modifier</a></td>
+                            <td><a href="index.php?page=Fmodif_collaborateur(admin)&IDcollaborateurs=<?php echo $ID_collaborateurs?>">modifier</a></td>
 
                             <td><a href="index.php?page=delete(admin)" onclick="return confirmation()">supprimer le collaborateur</a><td>
                     </tr>
