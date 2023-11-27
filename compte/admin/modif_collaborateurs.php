@@ -11,8 +11,6 @@
   $requete= "UPDATE `collaborateurs` SET `nom`= '".$saisie_nom."', `prenom`= '".$saisie_prenom."', `email`= '".$saisie_email."' WHERE  `ID_collaborateurs`= '".$IDcollaborateurs."'";
 
   if ($requetePrepare = mysqli_prepare($connect, $requete)){
-   
-    // mysqli_stmt_bind_param($requetePrepare, "?");
     
     mysqli_stmt_execute($requetePrepare);
 
