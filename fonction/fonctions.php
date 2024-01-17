@@ -137,31 +137,27 @@ function connectionBDD(){
         $_SESSION["email"] = $saisie_email;
        }
     }
-    function ChoixDuCollaborateurs(){
+
+
+    function ChoixDuCollaborateurs($idRdv){
         $connect = connectionBDD();
         $requete = "SELECT ID_collaborateurs , nom , prenom FROM `collaborateurs` ORDER BY `ID_collaborateurs`"; // Ta requette
         $resultat = mysqli_query($connect,$requete);  // Traitement de la requete
     
-    echo 'collaborateurs : <select name="collaborateurs">'; // Ton sélect
+    echo 'collaborateurs : <select id="choixCol" onchange="recuperation(this,'.$idRdv.')">'; // Ton sélect
+
+    echo '<option selected="selected">-choisir-</option>';
     
-    while ($donnees = mysqli_fetch_array($resultat)) { // Boucle qui permet d'afficher tout les utilisateurs 
+    while ($donnees = mysqli_fetch_array($resultat)) { 
     
-    $collaborateur = $donnees['ID_collaborateurs'] ; // Là tu récupère les données que tu souhaite comparer
+    $collaborateur = $donnees['ID_collaborateurs'] ; 
     $nom = $donnees['nom'] ;
-    $prenom = $donnees['prenom'] ; // Même chose
-    
-        if ($collaborateur == $nom) { // Ta comparaison à toi de la choisir
+    $prenom = $donnees['prenom'] ; 
             
-                        echo ' <option value="'.$collaborateur.'" selected="selected">'.$nom ," ", $prenom.'</option>';  // Tu ajoute donc selected="selected" si ta comparaison est vrai (ou fausse)
-                        
-            }
-            else
-            {
-            
-                        echo '<option value="'.$collaborateur.'" >'.$nom ," ", $prenom.'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
-    
-        }
+                        echo '<option value="'.$collaborateur.'" >'.$nom." ".$prenom.'</option>'; // Tu n'ajoute rien si la comparaison est fausse (ou vrai)
     
     }
     echo'</select></td>';
-}?>
+    }
+    
+    ?>

@@ -54,9 +54,9 @@
 
                             <td><?php echo $ColNom," ", $ColPrenom; ?></td>
 
-                            <td><?php  $collaborateurs=ChoixDuCollaborateurs(); ?></td>
+                            <td><?php ChoixDuCollaborateurs($IDrdvChauffeur); ?></td>
 
-                            <td><button><a href="validation_collaborateurs_chauffeur&IDcollaborateurs<?php echo $collaborateurs?>&IDrdvChauffeur<?php echo $IDrdvChauffeur ?>"></a>valider</button></td>
+                            <td><button><a id="<?php echo $IDrdvChauffeur ?>" href="index.php?page=validation_collaborateurs_chauffeur&IDrdvChauffeur=<?php echo $IDrdvChauffeur ?>">valider</a></button></td>
                         </tr>
                        <?php
                    };

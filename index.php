@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chauffeur/livreur privée</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/fonction.js"></script>
+  
 </head>
 <body>
 
@@ -233,7 +233,7 @@
         break;
 
         case "validation_collaborateurs_chauffeur":
-            include ("compte/admin/affectation_collaborateurs(chauffeur).php");
+            include ("compte/admin/affectation_collaborateur(chauffeur).php");
         break;
 
         case "Fmodif_collaborateur(admin)":
@@ -277,7 +277,7 @@
     <footer>
         <a href="">nous contacter</a>
     </footer>
-    
+    <script src="js/fonction.js"></script>
     
 </body>
 </html>
