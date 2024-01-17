@@ -3,7 +3,6 @@ function confirmation() {
     return  confirm('voulez vous vraiment supprimer');
 }
 
-
 function recuperation(sel, idRdv) {
    //document.getElementById("choixCol").innerHTML = "you selected: " + sel.value;
    console.log(sel.value);

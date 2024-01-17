@@ -56,6 +56,7 @@
 
                             <td><?php ChoixDuCollaborateurs($IDrdvChauffeur); ?></td>
 
+
                             <td><button><a id="<?php echo $IDrdvChauffeur ?>" href="index.php?page=validation_collaborateurs_chauffeur&IDrdvChauffeur=<?php echo $IDrdvChauffeur ?>">valider</a></button></td>
                         </tr>
                        <?php
