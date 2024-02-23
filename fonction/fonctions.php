@@ -139,12 +139,12 @@ function connectionBDD(){
     }
 
 
-    function ChoixDuCollaborateurs($idRdv){
+    function ChoixDuCollaborateurs($idRdv, $UrlBouton){
         $connect = connectionBDD();
         $requete = "SELECT ID_collaborateurs , nom , prenom FROM `collaborateurs` ORDER BY `ID_collaborateurs`"; // Ta requette
         $resultat = mysqli_query($connect,$requete);  // Traitement de la requete
     
-    echo 'collaborateurs : <select id="choixCol" onchange="recuperation(this,'.$idRdv.')">'; // Ton sélect
+    echo 'collaborateurs : <select id="choixCol" onchange="recuperation(this,'.$idRdv.','.$UrlBouton.')">'; // Ton sélect
 
     echo '<option selected="selected">-choisir-</option>';
     

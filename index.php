@@ -236,6 +236,10 @@
             include ("compte/admin/affectation_collaborateur(chauffeur).php");
         break;
 
+        case "validation_collaborateurs_livreur":
+            include ("compte/admin/affectation_collaborateur(livreur).php");
+        break;
+
         case "Fmodif_collaborateur(admin)":
             include ("compte/admin/formulaire_collaborateurs.php");
         break;

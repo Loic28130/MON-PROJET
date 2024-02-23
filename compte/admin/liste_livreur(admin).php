@@ -15,7 +15,7 @@
                 <td>adresse de livraison</td>
                 <td>date de livraison</td>
                 <td>collaborateur</td>
-                <td>affectation chauffeur</td> 
+                <td>choix du collaborateur</td> 
             </tr>
         </thead>
         
@@ -51,7 +51,10 @@
 
                             <td><?php echo $ColNom," ", $ColPrenom; ?></td>
 
-                            <td><?php  ChoixDuCollaborateurs();?></td>
+                            <td><?php ChoixDuCollaborateurs($IDrdvLivreur, "'index.php?page=validation_collaborateurs_livreur&IDrdvLivreur=". $IDrdvLivreur."'") ?></td>
+
+                            <td><button><a id="<?php echo $IDrdvLivreur ?>" href="index.php?page=validation_collaborateurs_livreur&IDrdvLivreur=<?php echo $IDrdvLivreur ?>">valider</a></button></td>
+
                         </tr>
                        <?php
                    };
