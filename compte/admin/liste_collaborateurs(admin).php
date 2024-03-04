@@ -39,7 +39,7 @@
 
                             <td><a href="index.php?page=Fmodif_collaborateur(admin)&IDcollaborateurs=<?php echo $ID_collaborateurs?>">modifier</a></td>
 
-                            <td><a href="index.php?page=delete(admin)" onclick="return confirmation()">supprimer le collaborateur</a><td>
+                            <td><a href="index.php?page=delete(admin)&IDcollaborateurs=<?php echo $ID_collaborateurs?>" onclick="return confirmation()">supprimer le collaborateur</a><td>
                     </tr>
 
                     <!-- <div class="modif">
