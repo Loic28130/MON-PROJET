@@ -18,9 +18,7 @@ function recuperation(sel, idRdv, urlBouton) {
 
 }
 
-function recuperationSupprimer() {
-    
-}
+
 
 // document.querySelector('select[name=collaborateurListe]').addEventListener('change',function(e) { 
 //     console.log(e);
