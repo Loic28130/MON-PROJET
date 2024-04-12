@@ -15,7 +15,9 @@
 <body>
 
 <header>
-    <span><h1>UBBPOST</h1></span>
+    <div id="logo">
+        <span><h1>UBBPOST</h1></span>
+    </div>
     <a href="index.php?page=index" class="bouton">acceuil</a>
     
 
