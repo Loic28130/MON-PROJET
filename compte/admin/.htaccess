@@ -1,0 +1,4 @@
+AuthUserFile "C:\xampp\htdocs\MON PROJET\.htpasswd"
+AuthName "Accès reservé"
+AuthType Basic
+Require valid-user
